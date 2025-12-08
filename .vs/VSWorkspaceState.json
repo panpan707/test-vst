@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WinApp",
+    "\\WinApp\\App_Data",
+    "\\WinApp\\Controllers",
+    "\\WinApp\\Models",
+    "\\WinApp\\Models\\Migration",
+    "\\WinApp\\obj",
+    "\\WinApp\\SQL",
+    "\\WinApp\\Views",
+    "\\WinApp\\Views\\GiongCay"
+  ],
+  "SelectedNode": "\\WinApp\\App_Data\\Actions.json",
+  "PreviewInSolutionExplorer": false
+}
