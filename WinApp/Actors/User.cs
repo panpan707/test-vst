@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace System
 {
@@ -20,5 +21,23 @@ namespace Actors
 {
     public partial class Admin : User { }
     public partial class Developer : User { }
-    public partial class Staff : User { }
+    public partial class Staff : User {
+        public Staff()
+        {
+            // --- 1. SIDE MENU ---
+            SideMenu = new ActionContext();
+            var menuChucNang = new ActionContext("Chức năng Staff");
+            menuChucNang.Add("Tra cứu giống cây", "giongcay/index");
+            menuChucNang.Add("Bản đồ", "map/view");
+            SideMenu.Add(menuChucNang);
+
+            // --- 2. TOP MENU ---
+            TopMenu = new ActionContext();
+            var menuTaiKhoan = new ActionContext("Tài khoản");
+            menuTaiKhoan.Add("Đổi mật khẩu", "me/changepass");
+            menuTaiKhoan.Add("Đăng xuất", "Logout");
+            TopMenu.Add(menuTaiKhoan);
+        }
+    }
+    
 }

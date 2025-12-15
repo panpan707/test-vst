@@ -454,7 +454,7 @@ namespace System
                 return _schema;
             }
         }
-        public string HostName { get; set; } = @"LOCALHOST\SQLEXPRESS";
+        public string HostName { get; set; } = @"PANPANN\SQLEXPRESS";
         public string DatabaseName { get; set; } = @"KTPM";
         public string ConnectionString => $"Data Source={HostName};Initial Catalog={DatabaseName};Integrated Security=True";
         static public void CreateCommand(Action<SqlCommand> callback)

@@ -17,8 +17,8 @@ namespace WinApp.Controllers
         protected override void UpdateCore(TaiKhoan acc)
         {
             var pass = acc.MatKhau;
-            acc = DataEngine.Find<TaiKhoan>(acc.Ten);
 
+            acc = DataEngine.Find<TaiKhoan>(acc.Ten);
             if (acc == null)
             {
                 UpdateContext.Message = "Người dùng không tồn tại";
@@ -59,6 +59,10 @@ namespace WinApp.Controllers
         protected override object UpdateSuccess()
         {
             errorCount = 0;
+            if (App.User is Actors.Staff)
+            {
+                return Redirect("giongcay/index"); // <--- Đường dẫn này phải khớp với cái bạn Hard-code trong User.cs
+            }
             return Redirect("home");
         }
     }
