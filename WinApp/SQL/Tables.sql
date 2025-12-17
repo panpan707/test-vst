@@ -51,6 +51,21 @@ CREATE TABLE LichSuTruyCap (
 )
 GO
 
+
+CREATE TABLE LichSuTacDong (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    NguoiThucHien VARCHAR(50), -- Link tới TaiKhoan
+    ThoiGian DATETIME DEFAULT GETDATE(),
+    
+    BangTacDong NVARCHAR(50),  -- Vd: 'LoRung'
+    IdBanGhi INT,              -- Vd: Sửa Lô rừng số 5
+    LoaiTacDong NVARCHAR(20),  -- 'THEM', 'SUA', 'XOA'
+    
+    -- Lưu nội dung thay đổi (Quan trọng nhất)
+    NoiDungThayDoi NVARCHAR(MAX) -- Vd: "Đổi diện tích từ 10ha -> 5ha"
+)
+GO
+
 CREATE TABLE HanhChinh (
     Id int primary key identity,
     Ten nvarchar(50),
@@ -118,6 +133,7 @@ GO
 CREATE TABLE LoRung (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     MaLo NVARCHAR(50) NOT NULL,
+	BanDo NVARCHAR(MAX),
     
     -- Thông tin diện tích & trữ lượng (2.2.18)
     DienTich FLOAT NOT NULL, -- Đơn vị: ha
@@ -174,6 +190,17 @@ CREATE TABLE BaoCao ( -- Đáp ứng 2.7 - 2.8
     NoiDung NVARCHAR(MAX) NULL,
     FileDinhKem NVARCHAR(MAX) NULL, -- Đường dẫn file
     NguoiBaoCao VARCHAR(50) FOREIGN KEY REFERENCES TaiKhoan(Ten)
+)
+GO
+
+
+CREATE TABLE FileDinhKem (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    TenFile NVARCHAR(255),
+    DuongDan NVARCHAR(MAX),
+    LoaiDoiTuong NVARCHAR(50), -- 'BAOCAO'
+    IdDoiTuong INT,            -- Id của Báo cáo
+    NgayUpload DATETIME DEFAULT GETDATE()
 )
 GO
 

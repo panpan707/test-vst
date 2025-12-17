@@ -1,23 +1,33 @@
 ﻿USE KTPM
 GO
 
+DELETE FROM LichSuTacDong; -- Nếu có
+DELETE FROM LichSuTruyCap;
+DELETE FROM BaoCao;        -- Vì Báo cáo cũng dính đến Tài khoản
+DELETE FROM TaiKhoan;
+
+-- Sau khi xóa hết bảng con, mới được xóa bảng cha
+DELETE FROM Quyen;
+DELETE FROM HoSo;
+
+DBCC CHECKIDENT ('HoSo', RESEED, 0);
+DBCC CHECKIDENT ('Quyen', RESEED, 0);
+DBCC CHECKIDENT ('LichSuTruyCap', RESEED, 0);
 -- =============================================
 -- 1. HỒ SƠ NGƯỜI DÙNG (User Profile)
 -- =============================================
-DELETE FROM HoSo; DBCC CHECKIDENT ('HoSo', RESEED, 0);
 
 INSERT INTO HoSo (Ten, SDT, Email, Ext) VALUES
 (N'Vũ Song Tùng', '0989154248', 'tung.vusong@hust.edu.vn', N'Giảng viên hướng dẫn/Guest'),
 (N'Đào Lê Thu Thảo', '0989708960', 'thao.daolethu@hust.edu.vn', N'Giảng viên/Guest'),
-(N'Nguyễn Hà Phan', '090123822', 'admin@ktpm.com', N'Dev'),
-(N'Vũ Quang Huy', '0900000000', 'canbo@lamnghiep.gov.vn', N'admin'),
-(N'Phan Trường Khang', '0911111111', 'mail1@gmail.com',N'Quản trị viên hệ thống'),
-(N'Lê Triệu Hưng', '094444441', 'mail2@gmail.com',N'Quản trị viên hệ thống'),
-(N'Đỗ Xuân Hào', '093333333', 'mail3@gmail.com',N'Quản trị viên hệ thống');
+(N'Nguyễn Hà Phan', '090123822', 'phan@gmail.com', N'Dev'),
+(N'Vũ Quang Huy', '0900000000', 'huy@gmail.com', N'admin'),
+(N'Phan Trường Khang', '0911111111', 'khang@gmail.com',N'Quản trị viên hệ thống'),
+(N'Lê Triệu Hưng', '094444441', 'hung@gmail.com',N'Quản trị viên hệ thống'),
+(N'Đỗ Xuân Hào', '093333333', 'hao@gmail.com',N'Quản trị viên hệ thống');
 -- =============================================
 -- 2. QUYỀN HẠN (Roles)
 -- =============================================
-DELETE FROM Quyen; DBCC CHECKIDENT ('Quyen', RESEED, 0);
 
 INSERT INTO Quyen (Ten, Ext) VALUES
 (N'Developer', 'Developer'),
@@ -28,18 +38,43 @@ INSERT INTO Quyen (Ten, Ext) VALUES
 -- =============================================
 -- 3. TÀI KHOẢN ĐĂNG NHẬP (Accounts)
 -- =============================================
-DELETE FROM TaiKhoan; 
 
 INSERT INTO TaiKhoan (Ten, MatKhau, QuyenId, HoSoId) VALUES
--- Pass '1234' là ví dụ, thực tế nên mã hóa
-('PhanNguyen', '1234', 1, 3),        -- Tài khoản Dev 
-('HuyVu', '1234', 2, 4),      -- Tài khoản Admin
-('KhangPT', '1234', 3, 5),      -- Tài khoản Cán bộ
-('HungLe', '1234', 3, 6), 
-('HaoDo', '1234', 3, 7) ,
-('VST', '1234', 3, 1) , 
-('DLTT', '1234',3, 2); 
-
+(
+    'PhanNguyen', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Developer'), 
+    (SELECT Id FROM HoSo WHERE Email = 'phan@gmail.com')
+),
+(
+    'HuyVu', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Admin'), 
+    (SELECT Id FROM HoSo WHERE Email = 'huy@gmail.com')
+),
+(
+    'KhangPT', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Staff'), 
+    (SELECT Id FROM HoSo WHERE Email = 'khang@gmail.com')
+),
+(
+    'HungLe', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Staff'), 
+    (SELECT Id FROM HoSo WHERE Email = 'hung@gmail.com')
+),
+(
+    'HaoDo', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Staff'), 
+    (SELECT Id FROM HoSo WHERE Email = 'hao@gmail.com')
+),
+(
+    'VST', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Developer'), 
+    (SELECT Id FROM HoSo WHERE Email = 'tung.vusong@hust.edu.vn')
+),
+(
+    'DLTT', '1234', 
+    (SELECT Id FROM Quyen WHERE Ten = 'Staff'), 
+    (SELECT Id FROM HoSo WHERE Email = 'thao.daolethu@hust.edu.vn')
+);
 -- =============================================
 -- 4. LỊCH SỬ TRUY CẬP (Sample Logs)
 -- =============================================
