@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace WinApp.Controllers
 {
     using Models;
-    public class UpdateContext : EditContext
+    class UpdateContext : EditContext
     {
         public string Message { get; set; }
     }
-    public class BaseController : System.Mvc.Controller
+    class BaseController : System.Mvc.Controller
     {
         public virtual object Index() => View();
     }
 
-    public class DataController<T> : BaseController
+    class DataController<T> : BaseController
     {
         protected Type EntityType => typeof(T);
         protected virtual DataSchema.Table DataEngine => Provider.GetTable<T>();

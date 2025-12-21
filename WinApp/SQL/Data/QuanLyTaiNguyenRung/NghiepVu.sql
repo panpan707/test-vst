@@ -32,7 +32,8 @@ INSERT INTO LoRung (MaLo, DienTich, TruLuong, NamTrong, NguonGoc, DieuKienLapDia
 -- =============================================
 INSERT INTO BienDongRung (LoRungId, LoaiBienDong, NgayBienDong, DienTichBienDong, MoTaChiTiet, NguoiCapNhat) VALUES
 (1, N'Khai thác trắng', '2023-10-15', 2.0, N'Khai thác theo giấy phép số 123/GP-LN', 'HaoDo'),
-(6, N'Sạt lở đất', '2023-09-10', 0.5, N'Sạt lở do bão số 3 gây mất rừng phòng hộ', 'KhangPT'),
+(6, N'Sạt lở đất', '2023-09-10', 0.5, N'Sạt lở do bão số 3 gây mất rừng phòng hộ', 'HaoDo'),
+(14, N'Trồng mới', '2024-01-20', 1.5, N'Trồng keo lai theo dự án 661', 'KhangPT'),
 (3, N'Cháy rừng', '2023-06-01', 1.2, N'Cháy thực bì do người dân đốt nương làm rẫy', 'HungLe');
 
 

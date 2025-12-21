@@ -11,9 +11,6 @@ namespace Models
         public int? Id { get; set; }
         public string Ten { get; set; }
         public string Nguon { get; set; }
-public string DacTinh { get; set; }
-
-        public string LoaiCay { get; set; }
     }
 
     public partial class DonVi

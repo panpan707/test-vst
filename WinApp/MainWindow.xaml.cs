@@ -64,7 +64,7 @@ namespace WinApp
             Provider.Current.Schema.Migrate();
             //App.Start();
             App.User = new Actors.Developer();
-            App.Request("login");
+            App.Request("home")
         }
     }
 }
