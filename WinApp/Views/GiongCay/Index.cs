@@ -1,42 +1,49 @@
 ﻿using System;
-namespace WinApp.Views.TaiKhoan1
+using Models;
+
+namespace WinApp.Views.GiongCay
 {
     using Vst.Controls;
-    using Models;
+
+    // MÀN HÌNH DANH SÁCH
     class Index : BaseView<DataListViewLayout>
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of TaiKhoan";
+            context.Title = "Quản lý Giống Cây Trồng";
+
             context.TableColumns = new object[] {
-                new TableColumn { Name = "Ten", Caption = "Ten Header", Width = 100, },
-                new TableColumn { Name = "MatKhau", Caption = "MatKhau Header", Width = 100, },
+                // Name phải trùng với Property trong Model ở trên
+                new TableColumn { Name = "Ten", Caption = "Tên Giống", Width = 200 },
+                new TableColumn { Name = "LoaiCay", Caption = "Loại Cây", Width = 150 },
+                new TableColumn { Name = "Nguon", Caption = "Nguồn Gốc", Width = 200 },
+                new TableColumn { Name = "DacTinh", Caption = "Đặc Tính", Width = 300 },
             };
         }
     }
+
+    // MÀN HÌNH THÊM MỚI / SỬA
     class Add : EditView
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "TaiKhoan Information";
+            context.Title = "Thông tin Giống Cây";
+
             context.Editors = new object[] {
-                new EditorInfo { Name = "Ten", Caption = " Caption of Ten", Layout = 12,   },
-                new EditorInfo { Name = "MatKhau", Caption = " Caption of MatKhau", Layout = 12,   },
-                new EditorInfo { Name = "QuyenId", Caption = " Caption of QuyenId", Layout = 12,
-    Type = "select", ValueName = "Id", DisplayName = "FieldName", Options = Provider.Select<Quyen>(), },
-                new EditorInfo { Name = "HoSoId", Caption = " Caption of HoSoId", Layout = 12,
-    Type = "select", ValueName = "Id", DisplayName = "FieldName", Options = Provider.Select<HoSo>(), },
+                new EditorInfo { Name = "Ten", Caption = "Tên Giống", Layout = 6 },
+                new EditorInfo { Name = "LoaiCay", Caption = "Loại Cây", Layout = 6 },
+                new EditorInfo { Name = "Nguon", Caption = "Nguồn Gốc", Layout = 12 },
+                new EditorInfo { Name = "DacTinh", Caption = "Đặc Tính", Layout = 12 },
             };
         }
     }
+
     class Edit : Add
     {
         protected override void OnReady()
         {
-            // Thay FieldName bằng tên trường muốn thể hiện trên câu hỏi xóa bản ghi
-            ShowDeleteAction("FieldName");
-            // Thay EditorName bằng tên trường muốn cấm soạn thảo
-            Find("EditorName", c => c.IsEnabled = false);
+            // Hiển thị tên khi hỏi xóa
+            ShowDeleteAction("Ten");
         }
     }
 }
