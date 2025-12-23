@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Tai lieu\KTPMUD\Dev\KTPM_FULL\WinApp\obj\Debug\
+E:\test2\WinApp\obj\Debug\
 WinApp
 none
 false
 DEBUG;TRACE
-D:\Tai lieu\KTPMUD\Dev\KTPM_FULL\WinApp\App.xaml
+E:\test2\WinApp\App.xaml
 8851687289
 2-737652470
-691913589955
-151098897552
+851147031607
+151530840989
 MainWindow.xaml;Views\HanhChinh\DonViSelector.xaml;Views\Migrate\MigrateLayout.xaml;Views\_layouts\PageHeader.xaml;Views\_layouts\DataListViewLayout.xaml;Views\Migrate\CodeViewer.xaml;Views\_layouts\MainUserLayout.xaml;Views\_layouts\FormViewLayout.xaml;
 
-True
+False
 

@@ -19,10 +19,22 @@
     "giongcay/cssx": "Cơ sở sản xuất",
     "sanxuat": "Sản xuất",
     "tainguyen": "Tài nguyên",
-    "lorung": "Quản lý Lô Rừng",         
+    "lorung": "Quản lý Lô Rừng",
     "lorung/index": "Danh sách lô rừng",
     "lorung/themoi": "Thêm mới lô rừng",
     "lorung/baocao": "Báo cáo lô rừng",
+    "danhmuc": "Danh mục",
+    "baocao/index": "Báo cáo",
+    "biendongrung/index": "Biến động rừng",
+    "churung/index": "Chủ rừng",
+    "diemthientai/index": "Điểm hiện tại",
+    "donvi/index": "Đơn vị",
+    "hoso/index": "Hồ sơ",
+    "kyquyhoach/index": "Kỳ quy hoạch",
+    "loairung/index": "Loại rừng",
+    "lichsutacdong/index": "Lịch sử tác động",
+    "filedinhkem/index": "File đính kèm",
+    "quyen/index": "Quyền",
     ".": ""
   },
   "actors": {
@@ -80,25 +92,45 @@
             "Refs": [ "giongcay/index" ]
           }
         ]
-      }
-      ,
-"lorung": {
-    "Childs": [
-        {
+      },
+      "lorung": {
+        "Childs": [
+          {
             "Text": "Quản lý Lô Rừng",
-            "Refs": [
-                "lorung/index",
-                "lorung/themoi" 
-            ]
-        },
-        {
+            "Refs": ["lorung/index",
+                "lorung/themoi" ]
+          },
+          {
             "Text": "Báo cáo",
-            "Refs": [
-                "lorung/baocao"
+            "Refs": ["lorung/baocao"]   
+          }
+        ]       
+      },
+      "danhmuc": {
+        "Childs": [
+           {
+            "Text": "Dữ liệu chung",
+            "Refs": [ 
+                "baocao/index", 
+                "biendongrung/index", 
+                "churung/index",
+                "diemthientai/index",
+                "donvi/index",
+                "hoso/index",
+                "kyquyhoach/index",
+                "loairung/index"
             ]
-        }
-    ]
-}
+          },
+          {
+            "Text": "Hệ thống",
+            "Refs": [ 
+                "lichsutacdong/index",
+                "filedinhkem/index",
+                "quyen/index"
+            ]
+          }
+        ]
+      }
     },
     "Staff": {
       "home": {
@@ -116,8 +148,7 @@
             "Refs": [ "giongcay/index", "giongcay/cssx" ]
           }
         ]
-      }
-      ,
+      },
 "lorung": {
     "Childs": [
         {

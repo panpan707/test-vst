@@ -42,8 +42,10 @@ namespace WinApp.Views.GiongCay
     {
         protected override void OnReady()
         {
-            // Hiển thị tên khi hỏi xóa
-            ShowDeleteAction("Ten");
+            // Thay FieldName bằng tên trường muốn thể hiện trên câu hỏi xóa bản ghi
+            ShowDeleteAction("FieldName");
+            // Thay EditorName bằng tên trường muốn cấm soạn thảo
+            Find("EditorName", c => c.IsEnabled = false);
         }
     }
 }
