@@ -14,11 +14,11 @@ namespace WinApp.Views.KyQuyHoach
         {
             context.Title = "List of KyQuyHoach";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenKy", Caption = "TenKy Header", Width = 100, },
-                new TableColumn { Name = "TuNam", Caption = "TuNam Header", Width = 100, },
-                new TableColumn { Name = "DenNam", Caption = "DenNam Header", Width = 100, },
-                new TableColumn { Name = "MoTa", Caption = "MoTa Header", Width = 100, },
-                new TableColumn { Name = "TrangThai", Caption = "TrangThai Header", Width = 100, },
+                new TableColumn { Name = "TenKy", Caption = "Ten Ky ", Width = 300, },
+                new TableColumn { Name = "TuNam", Caption = "Tu Nam ", Width = 75, },
+                new TableColumn { Name = "DenNam", Caption = "Den Nam ", Width = 75, },
+                new TableColumn { Name = "MoTa", Caption = "Mo Ta ", Width = 150, },
+                new TableColumn { Name = "TrangThai", Caption = "Trang Thai ", Width = 75, },
             };
         }
     }
