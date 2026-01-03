@@ -14,10 +14,10 @@ namespace WinApp.Views.HoSo
         {
             context.Title = "List of HoSo";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "Ten", Caption = "Ten Header", Width = 100, },
-                new TableColumn { Name = "SDT", Caption = "SDT Header", Width = 100, },
-                new TableColumn { Name = "Email", Caption = "Email Header", Width = 100, },
-                new TableColumn { Name = "Ext", Caption = "Ext Header", Width = 100, },
+                new TableColumn { Name = "Ten", Caption = "Ten ", Width = 100, },
+                new TableColumn { Name = "SDT", Caption = "SDT ", Width = 100, },
+                new TableColumn { Name = "Email", Caption = "Email ", Width = 100, },
+                new TableColumn { Name = "Ext", Caption = "Ext ", Width = 100, },
             };
         }
     }

@@ -15,9 +15,9 @@ namespace WinApp.Views.LoaiRung
         {
             context.Title = "List of LoaiRung";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenLoai", Caption = "TenLoai Header", Width = 100, },
-                new TableColumn { Name = "MaLoai", Caption = "MaLoai Header", Width = 100, },
-                new TableColumn { Name = "MoTa", Caption = "MoTa Header", Width = 100, },
+                new TableColumn { Name = "TenLoai", Caption = "TenLoai ", Width = 100, },
+                new TableColumn { Name = "MaLoai", Caption = "MaLoai ", Width = 100, },
+                new TableColumn { Name = "MoTa", Caption = "MoTa ", Width = 100, },
             };
         }
     }
@@ -27,9 +27,9 @@ namespace WinApp.Views.LoaiRung
         {
             context.Title = "LoaiRung Information";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenLoai", Caption = " Caption of TenLoai", Layout = 12,   },
-                new EditorInfo { Name = "MaLoai", Caption = " Caption of MaLoai", Layout = 12,   },
-                new EditorInfo { Name = "MoTa", Caption = " Caption of MoTa", Layout = 12,   },
+                new EditorInfo { Name = "TenLoai", Caption = " TenLoai", Layout = 12,   },
+                new EditorInfo { Name = "MaLoai", Caption = " MaLoai", Layout = 12,   },
+                new EditorInfo { Name = "MoTa", Caption = " MoTa", Layout = 12,   },
             };
         }
     }

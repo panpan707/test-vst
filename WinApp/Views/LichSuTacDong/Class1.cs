@@ -15,12 +15,12 @@ namespace WinApp.Views.LichSuTacDong
         {
             context.Title = "List of LichSuTacDong";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "NguoiThucHien", Caption = "NguoiThucHien Header", Width = 100, },
-                new TableColumn { Name = "ThoiGian", Caption = "ThoiGian Header", Width = 100, },
-                new TableColumn { Name = "BangTacDong", Caption = "BangTacDong Header", Width = 100, },
-                new TableColumn { Name = "IdBanGhi", Caption = "IdBanGhi Header", Width = 100, },
-                new TableColumn { Name = "LoaiTacDong", Caption = "LoaiTacDong Header", Width = 100, },
-                new TableColumn { Name = "NoiDungThayDoi", Caption = "NoiDungThayDoi Header", Width = 100, },
+                new TableColumn { Name = "NguoiThucHien", Caption = "Nguoi Thuc Hien ", Width = 100, },
+                new TableColumn { Name = "ThoiGian", Caption = "Thoi Gian ", Width = 100, },
+                new TableColumn { Name = "BangTacDong", Caption = "Bang Tac Dong ", Width = 100, },
+                new TableColumn { Name = "IdBanGhi", Caption = "Id Ban Ghi ", Width = 100, },
+                new TableColumn { Name = "LoaiTacDong", Caption = "Loai Tac Dong ", Width = 100, },
+                new TableColumn { Name = "NoiDungThayDoi", Caption = "Noi Dung Thay Doi ", Width = 100, },
             };
         }
     }

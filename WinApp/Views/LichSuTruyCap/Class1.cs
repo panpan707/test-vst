@@ -15,9 +15,9 @@ namespace WinApp.Views.LichSuTruyCap
         {
             context.Title = "List of LichSuTruyCap";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "ThoiGian", Caption = "ThoiGian Header", Width = 100, },
-                new TableColumn { Name = "HanhDong", Caption = "HanhDong Header", Width = 100, },
-                new TableColumn { Name = "IPAddress", Caption = "IPAddress Header", Width = 100, },
+                new TableColumn { Name = "ThoiGian", Caption = "ThoiGian ", Width = 100, },
+                new TableColumn { Name = "HanhDong", Caption = "HanhDong ", Width = 100, },
+                new TableColumn { Name = "IPAddress", Caption = "IPAddress ", Width = 100, },
             };
         }
     }
