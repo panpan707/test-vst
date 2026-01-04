@@ -108,14 +108,13 @@
       },
       "danhmuc": {
         "Childs": [
-           {
+          {
             "Text": "Dữ liệu chung",
             "Refs": [ 
                 "baocao/index", 
                 "biendongrung/index", 
                 "churung/index",
                 "diemthientai/index",
-                "donvi/index",
                 "hoso/index",
                 "kyquyhoach/index",
                 "loairung/index"

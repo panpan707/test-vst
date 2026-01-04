@@ -89,6 +89,11 @@ namespace WinApp.Controllers
 {
     public partial class LoRungController : DataController<LoRung>
     {
+        protected override string GetSearchCondition(string keyword)
+        {
+           
+            return $"MaLo LIKE N'%{keyword}%' OR NguonGoc LIKE '%{keyword}%' OR DieuKienLapDia LIKE '%{keyword}%' OR TruLuong LIKE '%{keyword}%'";
+        }
     }
 }
 
