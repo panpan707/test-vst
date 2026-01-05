@@ -13,12 +13,12 @@ namespace WinApp.Views.ChuRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of ChuRung";
+            context.Title = "Quản lý Chủ Rừng";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenChuRung", Caption = "TenChuRung Header", Width = 100, },
-                new TableColumn { Name = "LoaiChuSoHuu", Caption = "LoaiChuSoHuu Header", Width = 100, },
-                new TableColumn { Name = "DiaChi", Caption = "DiaChi Header", Width = 100, },
-                new TableColumn { Name = "SoDienThoai", Caption = "SoDienThoai Header", Width = 100, },
+                new TableColumn { Name = "TenChuRung", Caption = "Tên Chủ Rừng", Width = 150, },
+                new TableColumn { Name = "LoaiChuSoHuu", Caption = "Loại Chủ Sở Hữu", Width = 150, },
+                new TableColumn { Name = "DiaChi", Caption = "Địa Chỉ", Width = 200, },
+                new TableColumn { Name = "SoDienThoai", Caption = "Số Điện Thoại", Width = 150, },
             };
         }
     }
@@ -26,12 +26,12 @@ namespace WinApp.Views.ChuRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "ChuRung Information";
+            context.Title = "Thông tin Chủ Rừng";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenChuRung", Caption = " Caption of TenChuRung", Layout = 12,   },
-                new EditorInfo { Name = "LoaiChuSoHuu", Caption = " Caption of LoaiChuSoHuu", Layout = 12,   },
-                new EditorInfo { Name = "DiaChi", Caption = " Caption of DiaChi", Layout = 12,   },
-                new EditorInfo { Name = "SoDienThoai", Caption = " Caption of SoDienThoai", Layout = 12,   },
+                new EditorInfo { Name = "TenChuRung", Caption = "Tên Chủ Rừng", Layout = 12,   },
+                new EditorInfo { Name = "LoaiChuSoHuu", Caption = "Loại Chủ Sở Hữu", Layout = 12,   },
+                new EditorInfo { Name = "DiaChi", Caption = "Địa Chỉ", Layout = 12,   },
+                new EditorInfo { Name = "SoDienThoai", Caption = "Số Điện Thoại", Layout = 12,   },
             };
         }
     }

@@ -12,14 +12,14 @@ namespace WinApp.Views.DiemThienTai
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of DiemThienTai";
+            context.Title = "Quản lý Điểm Thiên Tai";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenDiem", Caption = "TenDiem Header", Width = 100, },
-                new TableColumn { Name = "LoaiThienTai", Caption = "LoaiThienTai Header", Width = 100, },
-                new TableColumn { Name = "MucDo", Caption = "MucDo Header", Width = 100, },
-                new TableColumn { Name = "ToaDoX", Caption = "ToaDoX Header", Width = 100, },
-                new TableColumn { Name = "ToaDoY", Caption = "ToaDoY Header", Width = 100, },
-                new TableColumn { Name = "MoTa", Caption = "MoTa Header", Width = 100, },
+                new TableColumn { Name = "TenDiem", Caption = "Tên Điểm", Width = 150, },
+                new TableColumn { Name = "LoaiThienTai", Caption = "Loại Thiên Tai", Width = 120, },
+                new TableColumn { Name = "MucDo", Caption = "Mức Độ", Width = 100, },
+                new TableColumn { Name = "ToaDoX", Caption = "Toạ Độ X", Width = 100, },
+                new TableColumn { Name = "ToaDoY", Caption = "Toạ Độ Y", Width = 100, },
+                new TableColumn { Name = "MoTa", Caption = "Mô Tả", Width = 250, },
             };
         }
     }
@@ -27,15 +27,15 @@ namespace WinApp.Views.DiemThienTai
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "DiemThienTai Information";
+            context.Title = "Thông tin Điểm Thiên Tai";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenDiem", Caption = " Caption of TenDiem", Layout = 12,   },
-                new EditorInfo { Name = "LoaiThienTai", Caption = " Caption of LoaiThienTai", Layout = 12,   },
-                new EditorInfo { Name = "MucDo", Caption = " Caption of MucDo", Layout = 12,   },
-                new EditorInfo { Name = "ToaDoX", Caption = " Caption of ToaDoX", Layout = 12,   },
-                new EditorInfo { Name = "ToaDoY", Caption = " Caption of ToaDoY", Layout = 12,   },
-                new EditorInfo { Name = "MoTa", Caption = " Caption of MoTa", Layout = 12,   },
-                new EditorInfo { Name = "DonViId", Caption = " Caption of DonViId", Layout = 12,
+                new EditorInfo { Name = "TenDiem", Caption = "Tên Điểm", Layout = 12,   },
+                new EditorInfo { Name = "LoaiThienTai", Caption = "Loại Thiên Tai", Layout = 12,   },
+                new EditorInfo { Name = "MucDo", Caption = "Mức Độ", Layout = 12,   },
+                new EditorInfo { Name = "ToaDoX", Caption = "Toạ Độ X", Layout = 12,   },
+                new EditorInfo { Name = "ToaDoY", Caption = "Toạ Độ Y", Layout = 12,   },
+                new EditorInfo { Name = "MoTa", Caption = "Mô Tả", Layout = 12,   },
+                new EditorInfo { Name = "DonViId", Caption = "Đơn Vị ID", Layout = 12,
     Type = "select", ValueName = "Id", DisplayName = "FieldName", Options = Provider.Select<DonVi>(), },
             };
         }

@@ -13,12 +13,12 @@ namespace WinApp.Views.BaoCao
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of BaoCao";
+            context.Title = "Quản lý Báo Cáo";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TieuDe", Caption = "TieuDe Header", Width = 100, },
-                new TableColumn { Name = "NgayBaoCao", Caption = "NgayBaoCao Header", Width = 100, },
-                new TableColumn { Name = "NoiDung", Caption = "NoiDung Header", Width = 100, },
-                new TableColumn { Name = "FileDinhKem", Caption = "FileDinhKem Header", Width = 100, },
+                new TableColumn { Name = "TieuDe", Caption = "Tiêu Đề", Width = 150, },
+                new TableColumn { Name = "NgayBaoCao", Caption = "Ngày Báo Cáo", Width = 125, },
+                new TableColumn { Name = "NoiDung", Caption = "Nội Dung", Width = 300, },
+                new TableColumn { Name = "FileDinhKem", Caption = "File Đính Kèm", Width = 200, },
             };
         }
     }
@@ -26,13 +26,13 @@ namespace WinApp.Views.BaoCao
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "BaoCao Information";
+            context.Title = "Thông tin Báo Cáo";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TieuDe", Caption = " Caption of TieuDe", Layout = 12,   },
-                new EditorInfo { Name = "NgayBaoCao", Caption = " Caption of NgayBaoCao", Layout = 12,   },
-                new EditorInfo { Name = "NoiDung", Caption = " Caption of NoiDung", Layout = 12,   },
-                new EditorInfo { Name = "FileDinhKem", Caption = " Caption of FileDinhKem", Layout = 12,   },
-                new EditorInfo { Name = "NguoiBaoCao", Caption = " Caption of NguoiBaoCao", Layout = 12,
+                new EditorInfo { Name = "TieuDe", Caption = "Tiêu Đề", Layout = 12,   },
+                new EditorInfo { Name = "NgayBaoCao", Caption = "Ngày Báo Cáo", Layout = 12,   },
+                new EditorInfo { Name = "NoiDung", Caption = "Nội Dung", Layout = 12,   },
+                new EditorInfo { Name = "FileDinhKem", Caption = "File Đính Kèm", Layout = 12,   },
+                new EditorInfo { Name = "NguoiBaoCao", Caption = "Người Báo Cáo", Layout = 12,
     Type = "select", ValueName = "Ten", DisplayName = "FieldName", Options = Provider.Select<TaiKhoan>(), },
             };
         }

@@ -13,13 +13,13 @@ namespace WinApp.Views.FileDinhKem
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of FileDinhKem";
+            context.Title = "Quản lý File Đính Kèm";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenFile", Caption = "TenFile Header", Width = 100, },
-                new TableColumn { Name = "DuongDan", Caption = "DuongDan Header", Width = 100, },
-                new TableColumn { Name = "LoaiDoiTuong", Caption = "LoaiDoiTuong Header", Width = 100, },
-                new TableColumn { Name = "IdDoiTuong", Caption = "IdDoiTuong Header", Width = 100, },
-                new TableColumn { Name = "NgayUpload", Caption = "NgayUpload Header", Width = 100, },
+                new TableColumn { Name = "TenFile", Caption = "Tên File", Width = 100, },
+                new TableColumn { Name = "DuongDan", Caption = "Đường Dẫn", Width = 100, },
+                new TableColumn { Name = "LoaiDoiTuong", Caption = "Loại Đối Tượng", Width = 100, },
+                new TableColumn { Name = "IdDoiTuong", Caption = "ID Đối Tượng", Width = 100, },
+                new TableColumn { Name = "NgayUpload", Caption = "Ngày Upload", Width = 100, },
             };
         }
     }
@@ -27,13 +27,13 @@ namespace WinApp.Views.FileDinhKem
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "FileDinhKem Information";
+            context.Title = "Thông tin File Đính Kèm";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenFile", Caption = " Caption of TenFile", Layout = 12,   },
-                new EditorInfo { Name = "DuongDan", Caption = " Caption of DuongDan", Layout = 12,   },
-                new EditorInfo { Name = "LoaiDoiTuong", Caption = " Caption of LoaiDoiTuong", Layout = 12,   },
-                new EditorInfo { Name = "IdDoiTuong", Caption = " Caption of IdDoiTuong", Layout = 12,   },
-                new EditorInfo { Name = "NgayUpload", Caption = " Caption of NgayUpload", Layout = 12,   },
+                new EditorInfo { Name = "TenFile", Caption = "Ten File", Layout = 12,   },
+                new EditorInfo { Name = "DuongDan", Caption = "Duong Dan", Layout = 12,   },
+                new EditorInfo { Name = "LoaiDoiTuong", Caption = "Loai Doi Tuong", Layout = 12,   },
+                new EditorInfo { Name = "IdDoiTuong", Caption = "Id Doi Tuong", Layout = 12,   },
+                new EditorInfo { Name = "NgayUpload", Caption = "Ngay Upload", Layout = 12,   },
             };
         }
     }

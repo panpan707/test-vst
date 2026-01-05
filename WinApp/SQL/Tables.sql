@@ -133,7 +133,7 @@ GO
 CREATE TABLE LoRung (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     MaLo NVARCHAR(50) NOT NULL,
-	BanDo NVARCHAR(MAX),
+    BanDo NVARCHAR(MAX),
     
     -- Thông tin diện tích & trữ lượng (2.2.18)
     DienTich FLOAT NOT NULL, -- Đơn vị: ha
