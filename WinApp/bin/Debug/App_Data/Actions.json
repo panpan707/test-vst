@@ -18,23 +18,34 @@
     "giongcay/index": "Thông tin giống cây",
     "giongcay/cssx": "Cơ sở sản xuất",
     "sanxuat": "Sản xuất",
-    "tainguyen": "Tài nguyên",
-    "lorung": "Quản lý Lô Rừng",
+    
+    "tainguyen": "Quản lý CSDL tài nguyên rừng",
+    "lorung": "Lô rừng",
     "lorung/index": "Danh sách lô rừng",
     "lorung/themoi": "Thêm mới lô rừng",
     "lorung/baocao": "Báo cáo lô rừng",
-    "danhmuc": "Danh mục",
-    "baocao/index": "Báo cáo",
+    "lorung/map_phongho": "Bản đồ rừng phòng hộ",
+    "lorung/map_dacdung": "Bản đồ rừng đặc dụng",
+    "lorung/map_sanxuat": "Bản đồ rừng sản xuất",
+    "danhmuc": "Danh mục hệ thống",
+    "lorung/tracuu": "Tra cứu thông tin lô rừng",
+    
+    "kyquyhoach/index": "Kỳ quy hoạch",
+    "baocaoquyhoach/index": "Báo cáo quy hoạch",
+    "bandoquyhoach/index": "Bản đồ quy hoạch",
+    
     "biendongrung/index": "Biến động rừng",
+    "diemthientai/index": "Điểm thiên tai",
+    "baocao/index": "Báo cáo thiên tai",
+    
     "churung/index": "Chủ rừng",
-    "diemthientai/index": "Điểm hiện tại",
     "donvi/index": "Đơn vị",
     "hoso/index": "Hồ sơ",
-    "kyquyhoach/index": "Kỳ quy hoạch",
     "loairung/index": "Loại rừng",
     "lichsutacdong/index": "Lịch sử tác động",
     "filedinhkem/index": "File đính kèm",
     "quyen/index": "Quyền",
+    "lichsutruycap/index": "Lịch sử truy cập",
     ".": ""
   },
   "actors": {
@@ -69,7 +80,7 @@
         "Childs": [
           {
             "Text": "Người dùng",
-            "Refs": [ "taikhoan", "taikhoan/lichsu" ]
+            "Refs": [ "taikhoan", "lichsutruycap/index","lichsutacdong/index" ]
           },
           {
             "Text": "Hành chính",
@@ -81,50 +92,65 @@
           }
         ]
       },
+      "tainguyen": {
+        "Childs": [
+          {
+            "Text": "1. Quản lý quy hoạch rừng",
+            "Refs": [ 
+                "kyquyhoach/index", 
+                "baocaoquyhoach/index", 
+                "bandoquyhoach/index" 
+            ]
+          },
+          {
+            "Text": "2. Quản lý hiện trạng rừng",
+            "Refs": [ 
+                "lorung/index",
+                "lorung/tracuu",
+                "biendongrung/index" ,
+                "churung/index"
+            ]
+          },
+          {
+            "Text": "3. Bản đồ chuyên đề",
+            "Refs": [ 
+                "lorung/map_phongho",   // 2.2.7
+                "lorung/map_dacdung",   // 2.2.8
+                "lorung/map_sanxuat"    
+            ]
+          },
+          {
+            "Text": "4. Quản lý thiên tai",
+            "Refs": [ 
+                "diemthientai/index", 
+                "baocao/index" 
+            ]
+          }
+        ]       
+      },
       "giongcay": {
         "Childs": [
           {
             "Text": "Dữ liệu",
             "Refs": [ "giongcay/index", "giongcay/cssx" ]
-          },
-          {
-            "Text": "Thống kê",
-            "Refs": [ "giongcay/index" ]
           }
         ]
       },
-      "lorung": {
-        "Childs": [
-          {
-            "Text": "Quản lý Lô Rừng",
-            "Refs": ["lorung/index",
-                "lorung/themoi" ]
-          },
-          {
-            "Text": "Báo cáo",
-            "Refs": ["lorung/baocao"]   
-          }
-        ]       
-      },
       "danhmuc": {
         "Childs": [
-           {
-            "Text": "Dữ liệu chung",
+          {
+            "Text": "Danh mục dùng chung",
             "Refs": [ 
-                "baocao/index", 
-                "biendongrung/index", 
                 "churung/index",
-                "diemthientai/index",
                 "donvi/index",
-                "hoso/index",
-                "kyquyhoach/index",
-                "loairung/index"
+                "loairung/index",
+                "hoso/index"
             ]
           },
           {
             "Text": "Hệ thống",
             "Refs": [ 
-                "lichsutacdong/index",
+              
                 "filedinhkem/index",
                 "quyen/index"
             ]
@@ -149,23 +175,18 @@
           }
         ]
       },
-"lorung": {
-    "Childs": [
-        {
-            "Text": "Quản lý Lô Rừng",
-            "Refs": [
-                "lorung/index",
-                "lorung/themoi" 
-            ]
-        },
-        {
-            "Text": "Báo cáo",
-            "Refs": [
-                "lorung/baocao"
-            ]
-        }
-    ]
-}
+      "tainguyen": {
+        "Childs": [
+            {
+                "Text": "Hiện trạng rừng",
+                "Refs": [ "lorung/index" ]
+            },
+            {
+                "Text": "Quy hoạch",
+                "Refs": [ "baocaoquyhoach/index", "bandoquyhoach/index" ]
+            }
+        ]
+      }
     }
   }
 }

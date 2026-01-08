@@ -1,4 +1,6 @@
 ﻿using Models;
+using System;
+using System.Mvc;
 namespace WinApp.Controllers
 {
     public partial class BaoCaoController : DataController<BaoCao>
@@ -91,12 +93,10 @@ namespace WinApp.Controllers
     {
         protected override string GetSearchCondition(string keyword)
         {
-           
-            return $"MaLo LIKE N'%{keyword}%' OR NguonGoc LIKE '%{keyword}%' OR DieuKienLapDia LIKE '%{keyword}%' OR TruLuong LIKE '%{keyword}%'";
+            return $"MaLo LIKE N'%{keyword}%' OR NguonGoc LIKE N'%{keyword}%' OR DieuKienLapDia LIKE N'%{keyword}%'";
         }
     }
 }
-
 namespace WinApp.Controllers
 {
     public partial class QuyenController : DataController<Quyen>
@@ -110,7 +110,7 @@ namespace WinApp.Controllers
     {
     }
 }
-        
+
 namespace WinApp.Controllers
 {
     public partial class ViewDonViController : DataController<ViewDonVi>
@@ -125,4 +125,24 @@ namespace WinApp.Controllers
     }
 }
 
+namespace WinApp.Controllers
+{
+    public partial class ThuocTinhLoDatController : DataController<ThuocTinhLoDat>
+    {
+    }
+}
+
+namespace WinApp.Controllers
+{
+    public partial class BanDoQuyHoachController : DataController<BanDoQuyHoach>
+    {
+    }
+}
+
+namespace WinApp.Controllers
+{
+    public partial class BaoCaoQuyHoachController : DataController<BaoCaoQuyHoach>
+    {
+    }
+}
 

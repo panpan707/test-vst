@@ -1,5 +1,10 @@
 ﻿using System;
-namespace WinApp.Views.KyQuyHoach
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WinApp.Views.ThuocTinhLoDat
 {
     using Vst.Controls;
     using Models;
@@ -7,13 +12,11 @@ namespace WinApp.Views.KyQuyHoach
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of KyQuyHoach";
+            context.Title = "List of ThuocTinhLoDat";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenKy", Caption = "TenKy Header", Width = 100, },
-                new TableColumn { Name = "TuNam", Caption = "TuNam Header", Width = 100, },
-                new TableColumn { Name = "DenNam", Caption = "DenNam Header", Width = 100, },
+                new TableColumn { Name = "TenThuocTinh", Caption = "TenThuocTinh Header", Width = 100, },
+                new TableColumn { Name = "NhomThuocTinh", Caption = "NhomThuocTinh Header", Width = 100, },
                 new TableColumn { Name = "MoTa", Caption = "MoTa Header", Width = 100, },
-                new TableColumn { Name = "TrangThai", Caption = "TrangThai Header", Width = 100, },
             };
         }
     }
@@ -21,13 +24,11 @@ namespace WinApp.Views.KyQuyHoach
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "KyQuyHoach Information";
+            context.Title = "ThuocTinhLoDat Information";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenKy", Caption = " Caption of TenKy", Layout = 12,   },
-                new EditorInfo { Name = "TuNam", Caption = " Caption of TuNam", Layout = 12,   },
-                new EditorInfo { Name = "DenNam", Caption = " Caption of DenNam", Layout = 12,   },
+                new EditorInfo { Name = "TenThuocTinh", Caption = " Caption of TenThuocTinh", Layout = 12,   },
+                new EditorInfo { Name = "NhomThuocTinh", Caption = " Caption of NhomThuocTinh", Layout = 12,   },
                 new EditorInfo { Name = "MoTa", Caption = " Caption of MoTa", Layout = 12,   },
-                new EditorInfo { Name = "TrangThai", Caption = " Caption of TrangThai", Layout = 12,   },
             };
         }
     }

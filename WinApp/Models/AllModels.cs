@@ -6,6 +6,34 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    public partial class BanDoQuyHoach
+    {
+        public int? Id { get; set; }
+        public int? KyQuyHoachId { get; set; }
+        public string TenBanDo { get; set; }
+        public string LoaiBanDo { get; set; }
+        public string TyLe { get; set; }
+        public string DuLieuBanDo { get; set; }
+        public string MoTa { get; set; }
+    }
+}
+namespace Models
+{
+    public partial class BaoCaoQuyHoach
+    {
+        public int? Id { get; set; }
+        public int? KyQuyHoachId { get; set; }
+        public string TenBaoCao { get; set; }
+        public string SoHieuVanBan { get; set; }
+        public DateTime? NgayBanHanh { get; set; }
+        public string CoQuanBanHanh { get; set; }
+        public string FileDinhKem { get; set; }
+        public string MoTa { get; set; }
+    }
+}
+
+namespace Models
+{
     public partial class BaoCao
     {
         public int? Id { get; set; }
@@ -25,7 +53,9 @@ namespace Models
         public DateTime? NgayBienDong { get; set; }
         public string LoaiBienDong { get; set; }
         public double? DienTichBienDong { get; set; }
+        public double? TruLuongBienDong { get; set; }
         public string MoTaChiTiet { get; set; }
+        public string FileDinhKem { get; set; }
         public string NguoiCapNhat { get; set; }
     }
 }
@@ -160,6 +190,7 @@ namespace Models
     {
         public int? Id { get; set; }
         public string MaLo { get; set; }
+        public string TenLo { get; set; }
         public string BanDo { get; set; }
         public double? DienTich { get; set; }
         public double? TruLuong { get; set; }
@@ -172,8 +203,14 @@ namespace Models
         public int? ChuRungId { get; set; }
         public int? GiongCayId { get; set; }
         public int? KyQuyHoachId { get; set; }
+        public int? DoDocId { get; set; }
+        public int? DoCaoId { get; set; }
+        public int? DoDayDatId { get; set; }
+        public double? GiaTriDoDoc { get; set; }
+        public double? GiaTriDoCao { get; set; }
     }
 }
+
 namespace Models
 {
     public partial class Quyen
@@ -226,6 +263,16 @@ namespace Models
         public string MatKhau { get; set; }
         public int? QuyenId { get; set; }
         public string Quyen { get; set; }
+    }
+}
+namespace Models
+{
+    public partial class ThuocTinhLoDat
+    {
+        public int? Id { get; set; }
+        public string TenThuocTinh { get; set; }
+        public string NhomThuocTinh { get; set; }
+        public string MoTa { get; set; }
     }
 }
 

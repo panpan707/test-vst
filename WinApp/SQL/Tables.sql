@@ -12,10 +12,9 @@ GO
 USE KTPM
 GO
 
--- =============================================
--- PHẦN 1: QUẢN TRỊ HỆ THỐNG (FRAMEWORK CỦA GIÁO VIÊN)
--- Đáp ứng mục 1.1 -> 1.30
--- =============================================
+-- =======================================================
+-- PHẦN 1: QUẢN TRỊ HỆ THỐNG (GIỮ NGUYÊN GỐC CỦA BẠN)
+-- =======================================================
 
 CREATE TABLE HoSo (
     Id int primary key identity,
@@ -26,43 +25,41 @@ CREATE TABLE HoSo (
 )
 GO
 
-CREATE TABLE Quyen ( -- Đáp ứng 1.8, 1.9
+CREATE TABLE Quyen (
     Id int primary key identity,
     Ten nvarchar(50),
     Ext varchar(50)
 )
 GO
 
-CREATE TABLE TaiKhoan ( -- Đáp ứng 1.5, 1.25, 1.27
-    Ten varchar(50) primary key,
+-- Lưu ý: BaseController thường cần cột "Id". 
+-- Bảng này dùng "Ten" làm PK, cần chú ý khi code Controller.
+CREATE TABLE TaiKhoan (
+    Ten varchar(50) primary key, 
     MatKhau varchar(255),
     QuyenId int foreign key references Quyen(Id),
     HoSoId int foreign key references HoSo(Id)
 )
 GO
 
--- Bảng Log hệ thống (Đáp ứng 1.17 - 1.20)
 CREATE TABLE LichSuTruyCap (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     TaiKhoan VARCHAR(50) FOREIGN KEY REFERENCES TaiKhoan(Ten),
     ThoiGian DATETIME DEFAULT GETDATE(),
-    HanhDong NVARCHAR(255), -- Ví dụ: Đăng nhập, Xem báo cáo
+    HanhDong NVARCHAR(255),
     IPAddress VARCHAR(50) NULL
 )
 GO
 
-
+-- Bảng này cần khớp với BaseController đoạn Ghi Log
 CREATE TABLE LichSuTacDong (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    NguoiThucHien VARCHAR(50), -- Link tới TaiKhoan
+    NguoiThucHien VARCHAR(50), 
     ThoiGian DATETIME DEFAULT GETDATE(),
-    
-    BangTacDong NVARCHAR(50),  -- Vd: 'LoRung'
-    IdBanGhi INT,              -- Vd: Sửa Lô rừng số 5
-    LoaiTacDong NVARCHAR(20),  -- 'THEM', 'SUA', 'XOA'
-    
-    -- Lưu nội dung thay đổi (Quan trọng nhất)
-    NoiDungThayDoi NVARCHAR(MAX) -- Vd: "Đổi diện tích từ 10ha -> 5ha"
+    BangTacDong NVARCHAR(50),  
+    IdBanGhi NVARCHAR(50), -- Sửa thành NVARCHAR để lưu được cả ID số và ID chữ (nếu có)
+    LoaiTacDong NVARCHAR(20),  
+    NoiDungThayDoi NVARCHAR(MAX) 
 )
 GO
 
@@ -78,7 +75,7 @@ CREATE TABLE TenHanhChinh (
 )
 GO
 
-CREATE TABLE DonVi ( -- Đáp ứng 1.1 -> 1.4
+CREATE TABLE DonVi (
     Id int primary key identity,
     Ten nvarchar(50),
     HanhChinhId int foreign key references HanhChinh(Id),
@@ -87,137 +84,178 @@ CREATE TABLE DonVi ( -- Đáp ứng 1.1 -> 1.4
 )
 GO
 
--- =============================================
--- PHẦN 2: QUẢN LÝ TÀI NGUYÊN RỪNG (MODULE NGHIỆP VỤ)
--- =============================================
+-- =======================================================
+-- PHẦN 2: CÁC BẢNG MỚI & CẬP NHẬT (KHỚP MODEL C#)
+-- =======================================================
 
--- 2.1 QUẢN LÝ QUY HOẠCH (Đáp ứng 2.1.1 - 2.1.3)
+-- 2.1. Bảng Thuộc Tính Lô Đất (MỚI)
+-- Dùng để lưu danh mục: Độ dốc, Độ cao, Độ dày tầng đất
+CREATE TABLE ThuocTinhLoDat (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    TenThuocTinh NVARCHAR(200),
+    NhomThuocTinh NVARCHAR(100), -- VD: 'DoDoc', 'DoCao', 'DoDay'
+    MoTa NVARCHAR(MAX)
+)
+GO
+
+-- 2.2. KyQuyHoach (CẬP NHẬT)
 CREATE TABLE KyQuyHoach (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    TenKy NVARCHAR(100) NOT NULL, -- Ví dụ: Quy hoạch 2020-2025
+    TenKy NVARCHAR(100),
     TuNam INT,
     DenNam INT,
     MoTa NVARCHAR(MAX),
-    TrangThai BIT DEFAULT 1 -- 1: Đang hiệu lực, 0: Hết hạn
+    TrangThai BIT DEFAULT 1
 )
 GO
 
--- 2.2 DANH MỤC LÂM NGHIỆP (Đáp ứng 2.2.x)
-CREATE TABLE GiongCay ( -- Đáp ứng 2.2.17, 2.2.19
+-- 2.3. BanDoQuyHoach (MỚI - Khớp Model)
+CREATE TABLE BanDoQuyHoach (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    KyQuyHoachId INT FOREIGN KEY REFERENCES KyQuyHoach(Id),
+    TenBanDo NVARCHAR(200),
+    LoaiBanDo NVARCHAR(100),
+    TyLe NVARCHAR(50),
+    DuLieuBanDo NVARCHAR(MAX), -- Lưu đường dẫn file hoặc Base64
+    MoTa NVARCHAR(MAX)
+)
+GO
+
+-- 2.4. BaoCaoQuyHoach (MỚI - Khớp Model)
+CREATE TABLE BaoCaoQuyHoach (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    KyQuyHoachId INT FOREIGN KEY REFERENCES KyQuyHoach(Id),
+    TenBaoCao NVARCHAR(200),
+    SoHieuVanBan NVARCHAR(50),
+    NgayBanHanh DATETIME,
+    CoQuanBanHanh NVARCHAR(200),
+    FileDinhKem NVARCHAR(MAX),
+    MoTa NVARCHAR(MAX)
+)
+GO
+
+-- 2.5. Các danh mục con
+CREATE TABLE GiongCay (
     Id int primary key identity,
-    Ten nvarchar(50),
+    Ten nvarchar(200), -- Tăng độ rộng
     Nguon nvarchar(255),
-    DacTinh NVARCHAR(MAX) NULL,
-    LoaiCay NVARCHAR(50) NULL -- Gỗ lớn, Gỗ nhỏ, Lâm sản ngoài gỗ
+    DacTinh NVARCHAR(MAX),
+    LoaiCay NVARCHAR(50)
 )
 GO
 
-CREATE TABLE LoaiRung ( -- Đáp ứng 2.2.1 - 2.2.6
+CREATE TABLE LoaiRung (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    TenLoai NVARCHAR(255) NOT NULL, -- Rừng phòng hộ, Đặc dụng...
-    MaLoai VARCHAR(50) NULL,
-    MoTa NVARCHAR(MAX) NULL
+    TenLoai NVARCHAR(255),
+    MaLoai VARCHAR(50),
+    MoTa NVARCHAR(MAX)
 )
 GO
 
-CREATE TABLE ChuRung ( -- Đáp ứng 2.2.10 - 2.2.12
+CREATE TABLE ChuRung (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    TenChuRung NVARCHAR(255) NOT NULL,
-    LoaiChuSoHuu NVARCHAR(100) NULL, -- Hộ gia đình, Doanh nghiệp...
-    DiaChi NVARCHAR(MAX) NULL,
-    SoDienThoai NVARCHAR(20) NULL
+    TenChuRung NVARCHAR(255),
+    LoaiChuSoHuu NVARCHAR(100),
+    DiaChi NVARCHAR(MAX),
+    SoDienThoai NVARCHAR(20)
 )
 GO
 
--- 2.3 HIỆN TRẠNG RỪNG & THUỘC TÍNH LÔ (Đáp ứng 2.2.13 - 2.2.21)
+-- 2.6. LoRung (CẬP NHẬT NHIỀU CỘT MỚI)
 CREATE TABLE LoRung (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     MaLo NVARCHAR(50) NOT NULL,
+    TenLo NVARCHAR(200),
     BanDo NVARCHAR(MAX),
+    DienTich FLOAT,
+    TruLuong FLOAT,
+    NamTrong INT,
+    NguonGoc NVARCHAR(200),
+    DieuKienLapDia NVARCHAR(255),
+    TrangThaiSuDung NVARCHAR(100) DEFAULT N'Có rừng',
     
-    -- Thông tin diện tích & trữ lượng (2.2.18)
-    DienTich FLOAT NOT NULL, -- Đơn vị: ha
-    TruLuong FLOAT NULL,     -- Đơn vị: m3
-    NamTrong INT NULL,
-    
-    -- Các thuộc tính chi tiết (Mới thêm)
-    NguonGoc NVARCHAR(50) NULL,      -- Tự nhiên / Trồng (2.2.13 - 2.2.15)
-    DieuKienLapDia NVARCHAR(255) NULL, -- Đất đồi, núi đá, ngập mặn (2.2.16)
-    TrangThaiSuDung NVARCHAR(100) DEFAULT N'Có rừng', -- Có rừng / Chưa có rừng (2.2.24)
-    
-    -- Khóa ngoại
+    -- Khóa ngoại cơ bản
     DonViId INT FOREIGN KEY REFERENCES DonVi(Id),
     LoaiRungId INT FOREIGN KEY REFERENCES LoaiRung(Id),
     ChuRungId INT FOREIGN KEY REFERENCES ChuRung(Id),
     GiongCayId INT FOREIGN KEY REFERENCES GiongCay(Id),
-    KyQuyHoachId INT FOREIGN KEY REFERENCES KyQuyHoach(Id) -- Thuộc kỳ quy hoạch nào
+    KyQuyHoachId INT FOREIGN KEY REFERENCES KyQuyHoach(Id),
+    
+    -- CÁC CỘT MỚI THÊM (Theo Model C#)
+    DoDocId INT FOREIGN KEY REFERENCES ThuocTinhLoDat(Id),
+    DoCaoId INT FOREIGN KEY REFERENCES ThuocTinhLoDat(Id),
+    DoDayDatId INT FOREIGN KEY REFERENCES ThuocTinhLoDat(Id),
+    GiaTriDoDoc FLOAT,
+    GiaTriDoCao FLOAT
 )
 GO
 
--- 2.4 BIẾN ĐỘNG RỪNG (Đáp ứng 2.2.22 - 2.2.23)
--- Theo dõi lịch sử: Cháy rừng, Khai thác, Trồng mới...
+-- 2.7. BienDongRung (CẬP NHẬT)
 CREATE TABLE BienDongRung (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     LoRungId INT FOREIGN KEY REFERENCES LoRung(Id),
     NgayBienDong DATETIME DEFAULT GETDATE(),
-    LoaiBienDong NVARCHAR(100), -- Cháy, Chặt phá, Trồng mới
+    LoaiBienDong NVARCHAR(100),
     DienTichBienDong FLOAT,
+    TruLuongBienDong FLOAT, -- Mới thêm
     MoTaChiTiet NVARCHAR(MAX),
-    NguoiCapNhat VARCHAR(50) -- Link với TaiKhoan(Ten) nếu cần
+    FileDinhKem NVARCHAR(MAX), -- Mới thêm
+    NguoiCapNhat NVARCHAR(100)
 )
 GO
 
--- =============================================
--- PHẦN 3: QUẢN LÝ THIÊN TAI (Đáp ứng 2.3 - 2.8)
--- =============================================
+-- =======================================================
+-- PHẦN 3: QUẢN LÝ THIÊN TAI (GIỮ NGUYÊN & KHỚP TYPE)
+-- =======================================================
 
-CREATE TABLE DiemThienTai ( -- Đáp ứng 2.3 - 2.6
+CREATE TABLE DiemThienTai (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    TenDiem NVARCHAR(255) NOT NULL,
-    LoaiThienTai NVARCHAR(50) NOT NULL, -- 'TruotLo' hoặc 'LuQuet'
-    MucDo NVARCHAR(50) NULL,
-    ToaDoX FLOAT NULL, 
-    ToaDoY FLOAT NULL,
-    MoTa NVARCHAR(MAX) NULL,
+    TenDiem NVARCHAR(255),
+    LoaiThienTai NVARCHAR(100), -- Tăng độ rộng
+    MucDo NVARCHAR(50),
+    ToaDoX FLOAT, 
+    ToaDoY FLOAT,
+    MoTa NVARCHAR(MAX),
     DonViId INT FOREIGN KEY REFERENCES DonVi(Id)
 )
 GO
 
-CREATE TABLE BaoCao ( -- Đáp ứng 2.7 - 2.8
+CREATE TABLE BaoCao (
     Id INT IDENTITY(1,1) PRIMARY KEY,
-    TieuDe NVARCHAR(255) NOT NULL,
+    TieuDe NVARCHAR(255),
     NgayBaoCao DATETIME DEFAULT GETDATE(),
-    NoiDung NVARCHAR(MAX) NULL,
-    FileDinhKem NVARCHAR(MAX) NULL, -- Đường dẫn file
+    NoiDung NVARCHAR(MAX),
+    FileDinhKem NVARCHAR(MAX),
     NguoiBaoCao VARCHAR(50) FOREIGN KEY REFERENCES TaiKhoan(Ten)
 )
 GO
-
 
 CREATE TABLE FileDinhKem (
     Id INT IDENTITY(1,1) PRIMARY KEY,
     TenFile NVARCHAR(255),
     DuongDan NVARCHAR(MAX),
-    LoaiDoiTuong NVARCHAR(50), -- 'BAOCAO'
-    IdDoiTuong INT,            -- Id của Báo cáo
+    LoaiDoiTuong NVARCHAR(50), 
+    IdDoiTuong INT,           
     NgayUpload DATETIME DEFAULT GETDATE()
 )
 GO
 
--- =============================================
--- PHẦN 4: VIEWS HỖ TRỢ (FRAMEWORK)
--- =============================================
+-- =======================================================
+-- PHẦN 4: VIEWS (GIỮ NGUYÊN FRAMEWORK)
+-- =======================================================
 
 EXEC('CREATE VIEW ViewHoSo AS
-    SELECT HoSo.*, TaiKhoan.Ten as TenDangNhap, MatKhau, QuyenId, Quyen.Ten as Quyen 
+    SELECT HoSo.Id, HoSo.Ten, HoSo.SDT, HoSo.Email, HoSo.Ext, 
+           TaiKhoan.Ten as TenDangNhap, MatKhau, QuyenId, Quyen.Ten as Quyen 
     FROM TaiKhoan
     INNER JOIN Quyen ON QuyenId = Quyen.Id
     INNER JOIN HoSo ON HoSoId = HoSo.Id')
 GO
 
 EXEC('CREATE VIEW ViewDonVi AS
-    SELECT T.*, DonVi.Ten as TrucThuoc FROM
-        (SELECT DonVi.*, HanhChinh.Ten as Cap FROM DonVi 
+    SELECT T.Id, T.Ten, T.HanhChinhId, T.TenHanhChinh, T.TrucThuocId, T.Cap, DonVi.Ten as TrucThuoc FROM
+        (SELECT DonVi.Id, DonVi.Ten, DonVi.HanhChinhId, DonVi.TenHanhChinh, DonVi.TrucThuocId, HanhChinh.Ten as Cap FROM DonVi 
         inner join HanhChinh ON HanhChinhId = HanhChinh.Id) as T
     left join DonVi ON T.TrucThuocId = DonVi.Id')
 GO
+
