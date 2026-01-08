@@ -44,19 +44,22 @@ namespace WinApp.Controllers
 
         public override object Index()
         {
+            // Khi không có từ khóa (Values rỗng), gọi Index(null)
+            return Index(null);
+        }
+
+        // 2. THÊM MỚI hàm Index có tham số (để khớp với lệnh tìm kiếm)
+        public virtual object Index(string keyword)
+        {
             string condition = null;
 
-            // Lấy từ khóa từ URL (ví dụ: /LoRung/Index/abc -> Values[0] = "abc")
-            if (this.RequestContext.Values.Count > 0)
+            // Nếu có từ khóa -> Lấy điều kiện SQL từ hàm con (LoRungController)
+            if (!string.IsNullOrEmpty(keyword))
             {
-                var keyword = this.RequestContext.Values[0]?.ToString();
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    // Gọi hàm GetSearchCondition vừa khai báo ở trên
-                    condition = GetSearchCondition(keyword);
-                }
+                condition = GetSearchCondition(keyword);
             }
 
+            // Truy vấn dữ liệu với điều kiện tìm được
             return View(DataEngine.ToList<T>(condition, null));
         }
 

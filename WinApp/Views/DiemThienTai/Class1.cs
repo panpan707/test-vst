@@ -21,6 +21,19 @@ namespace WinApp.Views.DiemThienTai
                 new TableColumn { Name = "ToaDoY", Caption = "Toạ Độ Y", Width = 100, },
                 new TableColumn { Name = "MoTa", Caption = "Mô Tả", Width = 250, },
             };
+                context.Search = (o, s) =>
+            {
+                var e = (Models.DiemThienTai)o; // Ép kiểu về Lô Rừng
+                var k = s.ToLower(); // Chuyển từ khóa về chữ thường để so sánh
+
+                // Kiểm tra xem từ khóa có nằm trong các trường này không
+                // Lưu ý: Cần check != null để tránh lỗi crash app
+                return(e.LoaiThienTai != null && e.LoaiThienTai.ToLower().Contains(k));
+
+
+
+                
+            };
         }
     }
     class Add : EditView
