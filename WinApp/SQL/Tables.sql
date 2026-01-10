@@ -57,7 +57,7 @@ CREATE TABLE LichSuTacDong (
     NguoiThucHien VARCHAR(50), 
     ThoiGian DATETIME DEFAULT GETDATE(),
     BangTacDong NVARCHAR(50),  
-    IdBanGhi NVARCHAR(50), -- Sửa thành NVARCHAR để lưu được cả ID số và ID chữ (nếu có)
+    IdBanGhi INT,
     LoaiTacDong NVARCHAR(20),  
     NoiDungThayDoi NVARCHAR(MAX) 
 )
@@ -187,6 +187,7 @@ CREATE TABLE LoRung (
     DoDayDatId INT FOREIGN KEY REFERENCES ThuocTinhLoDat(Id),
     GiaTriDoDoc FLOAT,
     GiaTriDoCao FLOAT
+	
 )
 GO
 

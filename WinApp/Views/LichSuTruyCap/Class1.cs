@@ -15,9 +15,24 @@ namespace WinApp.Views.LichSuTruyCap
         {
             context.Title = "List of LichSuTruyCap";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "ThoiGian", Caption = "ThoiGian ", Width = 100, },
-                new TableColumn { Name = "HanhDong", Caption = "HanhDong ", Width = 100, },
+                new TableColumn { Name = "ThoiGian", Caption = "ThoiGian ", Width = 150, },
+                new TableColumn { Name = "TaiKhoan", Caption = "Tai khoan ", Width = 100, },
+                new TableColumn { Name = "HanhDong", Caption = "HanhDong ", Width = 200, },
                 new TableColumn { Name = "IPAddress", Caption = "IPAddress ", Width = 100, },
+            };
+            context.Search = (o, s) =>
+            {
+                var e = (Models.LichSuTruyCap)o; // Ép kiểu về Lô Rừng
+                var k = s.ToLower(); // Chuyển từ khóa về chữ thường để so sánh
+
+                // Kiểm tra xem từ khóa có nằm trong các trường này không
+                // Lưu ý: Cần check != null để tránh lỗi crash app
+                return (e.ThoiGian != null && e.ThoiGian.Value.ToString().ToLower().Contains(k))
+                    || (e.TaiKhoan != null && e.TaiKhoan.ToLower().Contains(k));
+                  
+
+
+           
             };
         }
     }

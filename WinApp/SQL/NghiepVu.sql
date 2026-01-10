@@ -57,10 +57,10 @@ INSERT INTO BienDongRung (LoRungId, LoaiBienDong, NgayBienDong, DienTichBienDong
 -- 4. ĐIỂM THIÊN TAI (Lũ quét, Sạt lở)
 -- =============================================
 INSERT INTO DiemThienTai (TenDiem, LoaiThienTai, MucDo, ToaDoX, ToaDoY, MoTa, DonViId) VALUES
-(N'Khu vực đê biển số 5', N'TruotLo', N'Cao', 106.55, 20.45, N'Sạt lở nghiêm trọng chân đê do triều cường', 7),
-(N'Ngầm tràn Thụy Xuân', N'LuQuet', N'Trung bình', 106.60, 20.50, N'Nước dâng cao khi mưa lớn, gây chia cắt', 8),
-(N'Khu dân cư Xóm 9', N'TruotLo', N'Thấp', 106.58, 20.48, N'Có hiện tượng nứt đất đồi sau nhà dân', 8),
-(N'Cống số 6', N'LuQuet', N'Cao', 106.52, 20.42, N'Điểm ngập úng cục bộ trũng thấp', 7);
+(N'Khu vực đê biển số 5', N'Trượt lở', N'Nghiêm trọng', 106.55, 20.45, N'Sạt lở nghiêm trọng chân đê do triều cường', 7),
+(N'Ngầm tràn Thụy Xuân', N'Lũ quét', N'Trung bình', 106.60, 20.50, N'Nước dâng cao khi mưa lớn, gây chia cắt', 8),
+(N'Khu dân cư Xóm 9', N'Trượt lở', N'Nhẹ', 106.58, 20.48, N'Có hiện tượng nứt đất đồi sau nhà dân', 8),
+(N'Cống số 6', N'Lũ Quét', N'Nghiêm trọng', 106.52, 20.42, N'Điểm ngập úng cục bộ trũng thấp', 7);
 
 
 -- =============================================

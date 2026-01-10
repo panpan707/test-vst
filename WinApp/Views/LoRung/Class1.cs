@@ -16,6 +16,8 @@ namespace WinApp.Views.LoRung
             base.RenderCore(context); // Nên gọi base để khởi tạo các thông số mặc định
             context.Title = "Danh sách Lô Rừng";
             var listThuocTinh = Provider.Select<ThuocTinhLoDat>();
+            var dictLoaiRung = Provider.Select<LoaiRung>()
+                                       .ToDictionary(x => x.Id, x => x.TenLoai.ToLower());
             // Cấu hình cột hiển thị
             context.TableColumns = new object[] {
                 new TableColumn { Name = "MaLo", Caption = "Mã Lô", Width = 100, },
@@ -41,28 +43,39 @@ namespace WinApp.Views.LoRung
 
                 // Kiểm tra xem từ khóa có nằm trong các trường này không
                 // Lưu ý: Cần check != null để tránh lỗi crash app
-                return(e.MaLo != null && e.MaLo.ToLower().Contains(k))
+                bool matchBasic = (e.MaLo != null && e.MaLo.ToLower().Contains(k))
                     || (e.TenLo != null && e.TenLo.ToLower().Contains(k))
                     || (e.NguonGoc != null && e.NguonGoc.ToLower().Contains(k))
                     || (e.DieuKienLapDia != null && e.DieuKienLapDia.ToLower().Contains(k));
 
-               
-               /* var matchingIds = listThuocTinh
-                    .Where(t => (t.TenThuocTinh != null && t.TenThuocTinh.ToLower().Contains(k)) 
-                             || (t.MoTa != null && t.MoTa.ToLower().Contains(k)))
-                    .Select(t => t.Id)
-                    .ToList();
+                if (matchBasic) return true;
 
-                // Kiểm tra xem các chỉ số của Lô rừng có nằm trong danh sách ID tìm được không
-                if (matchingIds.Count > 0)
+                // Tìm theo LOẠI RỪNG (Tra cứu nhanh bằng Dictionary)
+                if (e.LoaiRungId != null && dictLoaiRung.ContainsKey((int)e.LoaiRungId))
                 {
-                    if (e.DoDocId != null && matchingIds.Contains((int)e.DoDocId)) return true;
-                    if (e.DoCaoId != null && matchingIds.Contains((int)e.DoCaoId)) return true;
-                    if (e.DoDayDatId != null && matchingIds.Contains((int)e.DoDayDatId)) return true;
+                    // Lấy tên loại rừng từ từ điển ra để so sánh
+                    string tenLoai = dictLoaiRung[(int)e.LoaiRungId];
+                    if (tenLoai.Contains(k)) return true;
                 }
 
                 return false;
-              */
+                /* var matchingIds = listThuocTinh
+                     .Where(t => (t.TenThuocTinh != null && t.TenThuocTinh.ToLower().Contains(k)) 
+                              || (t.MoTa != null && t.MoTa.ToLower().Contains(k)))
+                     .Select(t => t.Id)
+                     .ToList();
+
+                 // Kiểm tra xem các chỉ số của Lô rừng có nằm trong danh sách ID tìm được không
+                 if (matchingIds.Count > 0)
+                 {
+                     if (e.DoDocId != null && matchingIds.Contains((int)e.DoDocId)) return true;
+                     if (e.DoCaoId != null && matchingIds.Contains((int)e.DoCaoId)) return true;
+                     if (e.DoDayDatId != null && matchingIds.Contains((int)e.DoDayDatId)) return true;
+                 }
+
+                 return false;
+                có thể sử dụng nhưng rất lag
+               */
             };
         }
     }
@@ -100,7 +113,7 @@ namespace WinApp.Views.LoRung
                     Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<DonVi>(), },
 
                 new EditorInfo { Name = "LoaiRungId", Caption = "Loại Rừng", Layout = 6,
-                    Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<LoaiRung>(), },
+                    Type = "select", ValueName = "Id", DisplayName = "TenLoai", Options = Provider.Select<LoaiRung>(), },
 
                 new EditorInfo { Name = "GiongCayId", Caption = "Giống Cây", Layout = 6,
                     Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<GiongCay>(), },
@@ -109,14 +122,6 @@ namespace WinApp.Views.LoRung
                     Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<KyQuyHoach>(), },
                 
                 // Thuộc tính lô đất
-                new EditorInfo { Name = "DoDocId", Caption = "Độ Dốc (Mã)", Layout = 6,
-                    Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<ThuocTinhLoDat>(), },
-
-                new EditorInfo { Name = "DoCaoId", Caption = "Độ Cao (Mã)", Layout = 6,
-                    Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<ThuocTinhLoDat>(), },
-
-                new EditorInfo { Name = "DoDayDatId", Caption = "Độ Dày Đất", Layout = 6,
-                    Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<ThuocTinhLoDat>(), },
 
                 new EditorInfo { Name = "GiaTriDoDoc", Caption = "Giá Trị Độ Dốc", Layout = 6,   },
                 new EditorInfo { Name = "GiaTriDoCao", Caption = "Giá Trị Độ Cao", Layout = 6,   },

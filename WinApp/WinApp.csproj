@@ -65,8 +65,8 @@
     </ApplicationDefinition>
     <Compile Include="Actors\User.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AllController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\GiongCayController.cs" />
     <Compile Include="Controllers\HanhChinhController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -76,14 +76,21 @@
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Models\%28Document%29.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AllModels.cs" />
     <Compile Include="Models\Migration\CodeGenerator.cs" />
     <Compile Include="Models\Config.cs" />
     <Compile Include="Models\DonVi.cs" />
-    <Compile Include="Models\MigrateResult.cs" />
     <Compile Include="Models\Migration\Provider.cs" />
     <Compile Include="Models\UpdateContext.cs" />
     <Compile Include="Views\Admin\Test.cs" />
+    <Compile Include="Views\BanDoQuyHoach\Class1.cs" />
+    <Compile Include="Views\BaoCaoQuyHoach\Class1.cs" />
+    <Compile Include="Views\BaoCao\Class1.cs" />
     <Compile Include="Views\BaseView.cs" />
+    <Compile Include="Views\BienDongRung\Class1.cs" />
+    <Compile Include="Views\ChuRung\Class1.cs" />
+    <Compile Include="Views\DiemThienTai\Class1.cs" />
+    <Compile Include="Views\FileDinhKem\Class1.cs" />
     <Compile Include="Views\GiongCay\Index.cs" />
     <Compile Include="Views\HanhChinh\DonViSelector.xaml.cs">
       <DependentUpon>DonViSelector.xaml</DependentUpon>
@@ -92,12 +99,23 @@
     <Compile Include="Views\Home\Developer.cs" />
     <Compile Include="Views\HanhChinh\HanhChinhManagerView.cs" />
     <Compile Include="Views\Home\Loading.cs" />
+    <Compile Include="Views\HoSo\Class1.cs" />
+    <Compile Include="Views\KyQuyHoach\Class1.cs" />
+    <Compile Include="Views\LichSuTacDong\Class1.cs" />
+    <Compile Include="Views\LichSuTruyCap\Class1.cs" />
+    <Compile Include="Views\LoaiRung\Class1.cs" />
+    <Compile Include="Views\LoRung\Class1.cs" />
     <Compile Include="Views\Me\ProfileView.cs" />
     <Compile Include="Views\Migrate\Index.cs" />
     <Compile Include="Views\Migrate\MigrateLayout.xaml.cs">
       <DependentUpon>MigrateLayout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Quyen\Class1.cs" />
     <Compile Include="Views\TaiKhoan\TaiKhoanManagerView.cs" />
+    <Compile Include="Views\TenHanhChinh\Class1.cs" />
+    <Compile Include="Views\ThuocTinhLoDat\Class1.cs" />
+    <Compile Include="Views\ViewDonVi\Class1.cs" />
+    <Compile Include="Views\ViewHoSo\Class1.cs" />
     <Compile Include="Views\_layouts\PageHeader.xaml.cs">
       <DependentUpon>PageHeader.xaml</DependentUpon>
     </Compile>
@@ -216,6 +234,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="SQL\NghiepVu.sql" />
+    <Content Include="SQL\HeThong.sql" />
+    <Content Include="SQL\TenHanhChinh.sql" />
     <Content Include="SQL\Procs.sql" />
     <Content Include="SQL\Tables.sql" />
   </ItemGroup>

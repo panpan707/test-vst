@@ -28,7 +28,8 @@ namespace WinApp.Views.TaiKhoan
             context.Search = (o, s) =>
             {
                 var e = (Models.ViewHoSo)o;
-                return e.Ten.ToLower().Contains(s) || e.TenDangNhap.Contains(s);
+                return e.Ten.ToLower().Contains(s) || e.TenDangNhap.Contains(s)
+                ||(e.Quyen.ToLower().Contains(s) || e.Quyen.Contains(s));
             };
         }
     }
