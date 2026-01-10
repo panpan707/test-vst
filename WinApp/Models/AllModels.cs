@@ -276,3 +276,13 @@ namespace Models
     }
 }
 
+namespace Models
+{
+    public partial class QuenMatKhauModel
+    {
+        public string TenDangNhap { get; set; }
+        public string Email { get; set; }
+        public string SoDienThoai { get; set; }
+        public string MatKhauMoi { get; set; }
+    }
+}

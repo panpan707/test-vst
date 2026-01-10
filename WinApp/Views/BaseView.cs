@@ -25,6 +25,7 @@ namespace WinApp.Views
         public object Layout { get; set; }
         public object Result { get; set; }
         public Func<object, string, bool> Search { get; set; }
+        public IEnumerable Actions { get; set; }
     }
 
     public class FileDialogView<TDialog> : System.Mvc.IView
@@ -210,5 +211,12 @@ namespace WinApp.Views
             context.Model = ec.Model;
             Action = ec.Action;
         }
+    }
+    public class ActionInfo
+    {
+        public string Name { get; set; }      // Tên định danh (VD: Forgot)
+        public string Caption { get; set; }   // Chữ hiển thị (VD: Quên mật khẩu?)
+        public string Icon { get; set; }      // Tên Icon (VD: Help)
+        public Action<object> Action { get; set; } // Hàm xử lý khi bấm nút
     }
 }
