@@ -33,16 +33,14 @@ namespace WinApp.Views.LoRung
                 new TableColumn { Name = "GiaTriDoCao", Caption = "Độ Cao", Width = 100, },
             };
 
-            // ========================================================
-            // [MỚI] LOGIC TÌM KIẾM (Client-Side Filtering)
-            // ========================================================
+         
             context.Search = (o, s) =>
             {
-                var e = (Models.LoRung)o; // Ép kiểu về Lô Rừng
+                var e = (Models.LoRung)o; 
                 var k = s.ToLower(); // Chuyển từ khóa về chữ thường để so sánh
 
-                // Kiểm tra xem từ khóa có nằm trong các trường này không
-                // Lưu ý: Cần check != null để tránh lỗi crash app
+                // check xem từ khóa có nằm trong không
+             
                 bool matchBasic = (e.MaLo != null && e.MaLo.ToLower().Contains(k))
                     || (e.TenLo != null && e.TenLo.ToLower().Contains(k))
                     || (e.NguonGoc != null && e.NguonGoc.ToLower().Contains(k))
@@ -50,7 +48,7 @@ namespace WinApp.Views.LoRung
 
                 if (matchBasic) return true;
 
-                // Tìm theo LOẠI RỪNG (Tra cứu nhanh bằng Dictionary)
+                // Tìm theo loại rừng
                 if (e.LoaiRungId != null && dictLoaiRung.ContainsKey((int)e.LoaiRungId))
                 {
                     // Lấy tên loại rừng từ từ điển ra để so sánh
@@ -74,7 +72,7 @@ namespace WinApp.Views.LoRung
                  }
 
                  return false;
-                có thể sử dụng nhưng rất lag
+               // có thể sử dụng nhưng rất lag
                */
             };
         }
@@ -88,15 +86,13 @@ namespace WinApp.Views.LoRung
             context.Editors = new object[] {
                 new EditorInfo { Name = "MaLo", Caption = "Mã Lô", Layout = 6,   },
                 new EditorInfo { Name = "TenLo", Caption = "Tên Lô", Layout = 6,   },
-                
-                // Đã gộp gọn lại editor Chủ rừng (tránh lặp lại như code cũ)
                 new EditorInfo {
                     Name = "ChuRungId",
                     Caption = "Chủ sở hữu rừng",
                     Layout = 6,
                     Type = "select",
                     ValueName = "Id",
-                    DisplayName = "Ten", // Thường là Ten hoặc TenChuRung tùy Model
+                    DisplayName = "TenChuRung", 
                     Options = Provider.Select<ChuRung>()
                 },
 
@@ -119,7 +115,7 @@ namespace WinApp.Views.LoRung
                     Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<GiongCay>(), },
 
                 new EditorInfo { Name = "KyQuyHoachId", Caption = "Kỳ Quy Hoạch", Layout = 6,
-                    Type = "select", ValueName = "Id", DisplayName = "Ten", Options = Provider.Select<KyQuyHoach>(), },
+                    Type = "select", ValueName = "Id", DisplayName = "TenKy", Options = Provider.Select<KyQuyHoach>(), },
                 
                 // Thuộc tính lô đất
 

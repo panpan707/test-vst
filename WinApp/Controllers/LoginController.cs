@@ -12,7 +12,7 @@ namespace WinApp.Controllers
     {        
         public override object Index()
         {
-            return View(new EditContext(new TaiKhoan { Ten = "dev", MatKhau = "1234" }));
+            return View(new EditContext(new TaiKhoan { Ten = "", MatKhau = "" }));
         }
         protected override void UpdateCore(TaiKhoan acc)
         {
@@ -42,6 +42,27 @@ namespace WinApp.Controllers
                 u.Profile = p;
             }
             App.User = u;
+
+            // ==========================================================
+            // [MỚI THÊM] 4. GHI LỊCH SỬ TRUY CẬP (LOGGING)
+            // ==========================================================
+            try
+            {
+                Provider.CreateCommand(cmd => {
+                    // Câu lệnh SQL khớp với bảng LichSuTruyCap trong file Tables.sql
+                    cmd.CommandText = "INSERT INTO LichSuTruyCap (TaiKhoan, ThoiGian, HanhDong) VALUES (@u, GETDATE(), N'Đăng nhập hệ thống')";
+
+                    // Truyền tham số để tránh lỗi SQL Injection
+                    cmd.Parameters.AddWithValue("@u", acc.Ten);
+
+                    cmd.ExecuteNonQuery();
+                });
+            }
+            catch
+            {
+                // Có thể bỏ qua lỗi ghi log để không chặn người dùng đăng nhập
+            }
+            // ==========================================================
         }
 
         static int errorCount = 0;
