@@ -13,12 +13,12 @@ namespace WinApp.Views.LichSuTruyCap
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of LichSuTruyCap";
+            context.Title = "Lịch sử truy cập";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "ThoiGian", Caption = "ThoiGian ", Width = 150, },
-                new TableColumn { Name = "TaiKhoan", Caption = "Tai khoan ", Width = 100, },
-                new TableColumn { Name = "HanhDong", Caption = "HanhDong ", Width = 200, },
-                new TableColumn { Name = "IPAddress", Caption = "IPAddress ", Width = 100, },
+                new TableColumn { Name = "ThoiGian", Caption = "Thời Gian ", Width = 150, },
+                new TableColumn { Name = "TaiKhoan", Caption = "Tài Khoản", Width = 100, },
+                new TableColumn { Name = "HanhDong", Caption = "Hành Động", Width = 200, },
+                new TableColumn { Name = "IPAddress", Caption = "Địa chỉ IP", Width = 100, },
             };
             context.Search = (o, s) =>
             {

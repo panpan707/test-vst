@@ -11,15 +11,15 @@ namespace WinApp.Views.BienDongRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of BienDongRung";
+            context.Title = "Danh Sách Biến Động Rừng";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "NgayBienDong", Caption = "NgayBienDong Header", Width = 100, },
-                new TableColumn { Name = "LoaiBienDong", Caption = "LoaiBienDong Header", Width = 100, },
-                new TableColumn { Name = "DienTichBienDong", Caption = "DienTichBienDong Header", Width = 100, },
-                new TableColumn { Name = "TruLuongBienDong", Caption = "TruLuongBienDong Header", Width = 100, },
-                new TableColumn { Name = "MoTaChiTiet", Caption = "MoTaChiTiet Header", Width = 100, },
-                new TableColumn { Name = "FileDinhKem", Caption = "FileDinhKem Header", Width = 100, },
-                new TableColumn { Name = "NguoiCapNhat", Caption = "NguoiCapNhat Header", Width = 100, },
+                new TableColumn { Name = "NgayBienDong", Caption = "Ngày Biến Động", Width = 150, },
+                new TableColumn { Name = "LoaiBienDong", Caption = "Loại Biến Động", Width = 150, },
+                new TableColumn { Name = "DienTichBienDong", Caption = "Diện Tích Biến Động", Width = 150, },
+                new TableColumn { Name = "TruLuongBienDong", Caption = "Trữ Lượng Biến Động", Width = 150, },
+                new TableColumn { Name = "MoTaChiTiet", Caption = "Mô Tả Chi Tiết", Width = 300, },
+                new TableColumn { Name = "FileDinhKem", Caption = "File Đính Kèm", Width = 120, },
+                new TableColumn { Name = "NguoiCapNhat", Caption = "Người Cập Nhật", Width = 100, },
             };
         }
     }
@@ -27,17 +27,17 @@ namespace WinApp.Views.BienDongRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "BienDongRung Information";
+            context.Title = "Thêm Biến Động Rừng";
             context.Editors = new object[] {
-                new EditorInfo { Name = "LoRungId", Caption = " Caption of LoRungId", Layout = 12,
+                new EditorInfo { Name = "LoRungId", Caption = "ID Lô Rừng", Layout = 12,
     Type = "select", ValueName = "Id", DisplayName = "FieldName", Options = Provider.Select<LoRung>(), },
-                new EditorInfo { Name = "NgayBienDong", Caption = " Caption of NgayBienDong", Layout = 12,   },
-                new EditorInfo { Name = "LoaiBienDong", Caption = " Caption of LoaiBienDong", Layout = 12,   },
-                new EditorInfo { Name = "DienTichBienDong", Caption = " Caption of DienTichBienDong", Layout = 12,   },
-                new EditorInfo { Name = "TruLuongBienDong", Caption = " Caption of TruLuongBienDong", Layout = 12,   },
-                new EditorInfo { Name = "MoTaChiTiet", Caption = " Caption of MoTaChiTiet", Layout = 12,   },
-                new EditorInfo { Name = "FileDinhKem", Caption = " Caption of FileDinhKem", Layout = 12,   },
-                new EditorInfo { Name = "NguoiCapNhat", Caption = " Caption of NguoiCapNhat", Layout = 12,   },
+                new EditorInfo { Name = "NgayBienDong", Caption = "Ngày Biến Động", Layout = 12,   },
+                new EditorInfo { Name = "LoaiBienDong", Caption = "Loại Biến Động", Layout = 12,   },
+                new EditorInfo { Name = "DienTichBienDong", Caption = "Diện Tích Biến Động", Layout = 12,   },
+                new EditorInfo { Name = "TruLuongBienDong", Caption = "Trữ Lượng Biến Động", Layout = 12,   },
+                new EditorInfo { Name = "MoTaChiTiet", Caption = "Mô Tả Chi Tiết", Layout = 12,   },
+                new EditorInfo { Name = "FileDinhKem", Caption = "File Đính Kèm", Layout = 12,   },
+                new EditorInfo { Name = "NguoiCapNhat", Caption = "Người Cập Nhật", Layout = 12,   },
             };
         }
     }

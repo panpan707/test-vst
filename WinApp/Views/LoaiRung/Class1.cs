@@ -13,11 +13,11 @@ namespace WinApp.Views.LoaiRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of LoaiRung";
+            context.Title = "Danh Sách Loại Rừng";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenLoai", Caption = "TenLoai ", Width = 100, },
-                new TableColumn { Name = "MaLoai", Caption = "MaLoai ", Width = 100, },
-                new TableColumn { Name = "MoTa", Caption = "MoTa ", Width = 100, },
+                new TableColumn { Name = "TenLoai", Caption = "Tên Loại", Width = 100, },
+                new TableColumn { Name = "MaLoai", Caption = "Mã Loại", Width = 100, },
+                new TableColumn { Name = "MoTa", Caption = "Mô Tả", Width = 100, },
             };
         }
     }
@@ -25,11 +25,11 @@ namespace WinApp.Views.LoaiRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "LoaiRung Information";
+            context.Title = "Thêm Loại Rừng";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenLoai", Caption = " TenLoai", Layout = 12,   },
-                new EditorInfo { Name = "MaLoai", Caption = " MaLoai", Layout = 12,   },
-                new EditorInfo { Name = "MoTa", Caption = " MoTa", Layout = 12,   },
+                new EditorInfo { Name = "TenLoai", Caption = "Tên Loại", Layout = 12,   },
+                new EditorInfo { Name = "MaLoai", Caption = "Mã Loại", Layout = 12,   },
+                new EditorInfo { Name = "MoTa", Caption = "Mô Tả", Layout = 12,   },
             };
         }
     }

@@ -13,7 +13,7 @@ namespace WinApp.Views.BaoCao
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Quản lý Báo Cáo";
+            context.Title = "Danh Sách Báo Cáo Thiên Tai";
             context.TableColumns = new object[] {
                 new TableColumn { Name = "TieuDe", Caption = "Tiêu Đề", Width = 150, },
                 new TableColumn { Name = "NgayBaoCao", Caption = "Ngày Báo Cáo", Width = 125, },
@@ -26,7 +26,7 @@ namespace WinApp.Views.BaoCao
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Thông tin Báo Cáo";
+            context.Title = "Thêm Báo Cáo";
             context.Editors = new object[] {
                 new EditorInfo { Name = "TieuDe", Caption = "Tiêu Đề", Layout = 12,   },
                 new EditorInfo { Name = "NgayBaoCao", Caption = "Ngày Báo Cáo", Layout = 12,   },

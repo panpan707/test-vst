@@ -13,7 +13,7 @@ namespace WinApp.Views.ChuRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Quản lý Chủ Rừng";
+            context.Title = "Danh Sách Chủ Rừng";
             context.TableColumns = new object[] {
                 new TableColumn { Name = "TenChuRung", Caption = "Tên Chủ Rừng", Width = 150, },
                 new TableColumn { Name = "LoaiChuSoHuu", Caption = "Loại Chủ Sở Hữu", Width = 150, },
@@ -26,7 +26,7 @@ namespace WinApp.Views.ChuRung
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Thông tin Chủ Rừng";
+            context.Title = "Thêm Chủ Rừng";
             context.Editors = new object[] {
                 new EditorInfo { Name = "TenChuRung", Caption = "Tên Chủ Rừng", Layout = 12,   },
                 new EditorInfo { Name = "LoaiChuSoHuu", Caption = "Loại Chủ Sở Hữu", Layout = 12,   },

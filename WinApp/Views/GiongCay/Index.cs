@@ -10,7 +10,7 @@ namespace WinApp.Views.GiongCay
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Quản lý Giống Cây Trồng";
+            context.Title = "Danh Sách Giống Cây Trồng";
 
             context.TableColumns = new object[] {
                 // Name phải trùng với Property trong Model ở trên
@@ -27,7 +27,7 @@ namespace WinApp.Views.GiongCay
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Thông tin Giống Cây";
+            context.Title = "Thêm Giống Cây";
 
             context.Editors = new object[] {
                 new EditorInfo { Name = "Ten", Caption = "Tên Giống", Layout = 6 },

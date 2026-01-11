@@ -13,10 +13,10 @@ namespace WinApp.Views.Quyen
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of Quyen";
+            context.Title = "Danh Sách Quyền";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "Ten", Caption = "Ten Header", Width = 100, },
-                new TableColumn { Name = "Ext", Caption = "Ext Header", Width = 100, },
+                new TableColumn { Name = "Ten", Caption = "Tên", Width = 100, },
+                new TableColumn { Name = "Ext", Caption = "Chức Vụ", Width = 100, },
             };
         }
     }
@@ -24,10 +24,10 @@ namespace WinApp.Views.Quyen
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Quyen Information";
+            context.Title = "Thêm Quyền";
             context.Editors = new object[] {
-                new EditorInfo { Name = "Ten", Caption = " Caption of Ten", Layout = 12,   },
-                new EditorInfo { Name = "Ext", Caption = " Caption of Ext", Layout = 12,   },
+                new EditorInfo { Name = "Ten", Caption = " Tên", Layout = 12,   },
+                new EditorInfo { Name = "Ext", Caption = " Chức Vụ", Layout = 12,   },
             };
         }
     }
