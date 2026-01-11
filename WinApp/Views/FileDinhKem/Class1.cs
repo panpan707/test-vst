@@ -13,7 +13,7 @@ namespace WinApp.Views.FileDinhKem
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Quản lý File Đính Kèm";
+            context.Title = "Danh Sách File Đính Kèm";
             context.TableColumns = new object[] {
                 new TableColumn { Name = "TenFile", Caption = "Tên File", Width = 100, },
                 new TableColumn { Name = "DuongDan", Caption = "Đường Dẫn", Width = 100, },
@@ -27,13 +27,13 @@ namespace WinApp.Views.FileDinhKem
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Thông tin File Đính Kèm";
+            context.Title = "Thêm File Đính Kèm";
             context.Editors = new object[] {
-                new EditorInfo { Name = "TenFile", Caption = "Ten File", Layout = 12,   },
-                new EditorInfo { Name = "DuongDan", Caption = "Duong Dan", Layout = 12,   },
-                new EditorInfo { Name = "LoaiDoiTuong", Caption = "Loai Doi Tuong", Layout = 12,   },
-                new EditorInfo { Name = "IdDoiTuong", Caption = "Id Doi Tuong", Layout = 12,   },
-                new EditorInfo { Name = "NgayUpload", Caption = "Ngay Upload", Layout = 12,   },
+                new EditorInfo { Name = "TenFile", Caption = "Tên File", Layout = 12,   },
+                new EditorInfo { Name = "DuongDan", Caption = "Đường Dẫn", Layout = 12,   },
+                new EditorInfo { Name = "LoaiDoiTuong", Caption = "Loại Đối Tượng", Layout = 12,   },
+                new EditorInfo { Name = "IdDoiTuong", Caption = "Id Đối Tượng", Layout = 12,   },
+                new EditorInfo { Name = "NgayUpload", Caption = "Ngày Update", Layout = 12,   },
             };
         }
     }

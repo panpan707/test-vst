@@ -13,13 +13,13 @@ namespace WinApp.Views.BanDoQuyHoach
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of BanDoQuyHoach";
+            context.Title = "Bản Đồ Quy Hoạch";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenBanDo", Caption = "TenBanDo Header", Width = 100, },
-                new TableColumn { Name = "LoaiBanDo", Caption = "LoaiBanDo Header", Width = 100, },
-                new TableColumn { Name = "TyLe", Caption = "TyLe Header", Width = 100, },
-                new TableColumn { Name = "DuLieuBanDo", Caption = "DuLieuBanDo Header", Width = 100, },
-                new TableColumn { Name = "MoTa", Caption = "MoTa Header", Width = 100, },
+                new TableColumn { Name = "TenBanDo", Caption = "Tên Bản Đồ", Width = 200, },
+                new TableColumn { Name = "LoaiBanDo", Caption = "Loại Bản Đồ", Width = 100, },
+                new TableColumn { Name = "TyLe", Caption = "Tỷ Lệ", Width = 100, },
+                new TableColumn { Name = "DuLieuBanDo", Caption = "Dữ Liệu Bản Đồ", Width = 150, },
+                new TableColumn { Name = "MoTa", Caption = "Mô Tả", Width = 200, },
             };
         }
     }
@@ -27,15 +27,15 @@ namespace WinApp.Views.BanDoQuyHoach
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "BanDoQuyHoach Information";
+            context.Title = "Thêm Bản Đồ Quy Hoạch";
             context.Editors = new object[] {
-                new EditorInfo { Name = "KyQuyHoachId", Caption = " Caption of KyQuyHoachId", Layout = 12,
+                new EditorInfo { Name = "KyQuyHoachId", Caption = "Kỳ Quy Hoạch", Layout = 12,
     Type = "select", ValueName = "Id", DisplayName = "FieldName", Options = Provider.Select<KyQuyHoach>(), },
-                new EditorInfo { Name = "TenBanDo", Caption = " Caption of TenBanDo", Layout = 12,   },
-                new EditorInfo { Name = "LoaiBanDo", Caption = " Caption of LoaiBanDo", Layout = 12,   },
-                new EditorInfo { Name = "TyLe", Caption = " Caption of TyLe", Layout = 12,   },
-                new EditorInfo { Name = "DuLieuBanDo", Caption = " Caption of DuLieuBanDo", Layout = 12,   },
-                new EditorInfo { Name = "MoTa", Caption = " Caption of MoTa", Layout = 12,   },
+                new EditorInfo { Name = "TenBanDo", Caption = "Tên Bản Đồ", Layout = 12,   },
+                new EditorInfo { Name = "LoaiBanDo", Caption = "Loại Bản Đồ", Layout = 12,   },
+                new EditorInfo { Name = "TyLe", Caption = "Tỷ Lệ", Layout = 12,   },
+                new EditorInfo { Name = "DuLieuBanDo", Caption = "Dữ Liệu Bản Đồ", Layout = 12,   },
+                new EditorInfo { Name = "MoTa", Caption = "Mô Tả", Layout = 12,   },
             };
         }
     }

@@ -12,14 +12,14 @@ namespace WinApp.Views.BaoCaoQuyHoach
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of BaoCaoQuyHoach";
+            context.Title = "Báo Cáo Quy Hoạch";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TenBaoCao", Caption = "TenBaoCao Header", Width = 100, },
-                new TableColumn { Name = "SoHieuVanBan", Caption = "SoHieuVanBan Header", Width = 100, },
-                new TableColumn { Name = "NgayBanHanh", Caption = "NgayBanHanh Header", Width = 100, },
-                new TableColumn { Name = "CoQuanBanHanh", Caption = "CoQuanBanHanh Header", Width = 100, },
-                new TableColumn { Name = "FileDinhKem", Caption = "FileDinhKem Header", Width = 100, },
-                new TableColumn { Name = "MoTa", Caption = "MoTa Header", Width = 100, },
+                new TableColumn { Name = "TenBaoCao", Caption = "Tên Báo Cáo", Width = 200, },
+                new TableColumn { Name = "SoHieuVanBan", Caption = "Số Hiệu Văn Bản", Width = 150, },
+                new TableColumn { Name = "NgayBanHanh", Caption = "Ngày Ban Hành", Width = 150, },
+                new TableColumn { Name = "CoQuanBanHanh", Caption = "Cơ Quan Ban Hành", Width = 200, },
+                new TableColumn { Name = "FileDinhKem", Caption = "File Đính Kèm", Width = 150, },
+                new TableColumn { Name = "MoTa", Caption = "Mô Tả", Width = 200, },
             };
         }
     }
@@ -27,15 +27,15 @@ namespace WinApp.Views.BaoCaoQuyHoach
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "BaoCaoQuyHoach Information";
+            context.Title = "Thêm Báo Cáo Quy Hoạch";
             context.Editors = new object[] {
-                new EditorInfo { Name = "KyQuyHoachId", Caption = " Caption of KyQuyHoachId", Layout = 12,
+                new EditorInfo { Name = "KyQuyHoachId", Caption = "ID Kỳ Quy Hoạch", Layout = 12,
     Type = "select", ValueName = "Id", DisplayName = "FieldName", Options = Provider.Select<KyQuyHoach>(), },
-                new EditorInfo { Name = "TenBaoCao", Caption = " Caption of TenBaoCao", Layout = 12,   },
-                new EditorInfo { Name = "SoHieuVanBan", Caption = " Caption of SoHieuVanBan", Layout = 12,   },
-                new EditorInfo { Name = "NgayBanHanh", Caption = " Caption of NgayBanHanh", Layout = 12,   },
-                new EditorInfo { Name = "CoQuanBanHanh", Caption = " Caption of CoQuanBanHanh", Layout = 12,   },
-                new EditorInfo { Name = "FileDinhKem", Caption = " Caption of FileDinhKem", Layout = 12,   },
+                new EditorInfo { Name = "TenBaoCao", Caption = "Tên Báo Cáo", Layout = 12,   },
+                new EditorInfo { Name = "SoHieuVanBan", Caption = "Số Hiệu Văn Bản", Layout = 12,   },
+                new EditorInfo { Name = "NgayBanHanh", Caption = "Ngày Ban Hành", Layout = 12,   },
+                new EditorInfo { Name = "CoQuanBanHanh", Caption = "Cơ Quan Ban Hành", Layout = 12,   },
+                new EditorInfo { Name = "FileDinhKem", Caption = "File Đính Kèm", Layout = 12,   },
                 new EditorInfo { Name = "MoTa", Caption = " Caption of MoTa", Layout = 12,   },
             };
         }

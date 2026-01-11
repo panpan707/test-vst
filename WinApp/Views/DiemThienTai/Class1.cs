@@ -12,7 +12,7 @@ namespace WinApp.Views.DiemThienTai
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Quản lý Điểm Thiên Tai";
+            context.Title = "Danh Sách Điểm Thiên Tai";
             context.TableColumns = new object[] {
                 new TableColumn { Name = "TenDiem", Caption = "Tên Điểm", Width = 150, },
                 new TableColumn { Name = "LoaiThienTai", Caption = "Loại Thiên Tai", Width = 120, },
@@ -40,7 +40,7 @@ namespace WinApp.Views.DiemThienTai
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "Thông tin Điểm Thiên Tai";
+            context.Title = "Thêm Điểm Thiên Tai";
             context.Editors = new object[] {
                 new EditorInfo { Name = "TenDiem", Caption = "Tên Điểm", Layout = 12,   },
                 new EditorInfo { Name = "LoaiThienTai", Caption = "Loại Thiên Tai", Layout = 12,   },

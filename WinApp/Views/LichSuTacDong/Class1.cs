@@ -13,14 +13,14 @@ namespace WinApp.Views.LichSuTacDong
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of LichSuTacDong";
+            context.Title = "Lịch Sử Tác Động";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "NguoiThucHien", Caption = "Nguoi Thuc Hien ", Width = 100, },
-                new TableColumn { Name = "ThoiGian", Caption = "Thoi Gian ", Width = 100, },
-                new TableColumn { Name = "BangTacDong", Caption = "Bang Tac Dong ", Width = 100, },
-                new TableColumn { Name = "IdBanGhi", Caption = "Id Ban Ghi ", Width = 100, },
-                new TableColumn { Name = "LoaiTacDong", Caption = "Loai Tac Dong ", Width = 100, },
-                new TableColumn { Name = "NoiDungThayDoi", Caption = "Noi Dung Thay Doi ", Width = 100, },
+                new TableColumn { Name = "NguoiThucHien", Caption = "Người Thực Hiện", Width = 150, },
+                new TableColumn { Name = "ThoiGian", Caption = "Thời Gian", Width = 150, },
+                new TableColumn { Name = "BangTacDong", Caption = "Bảng Tác Động", Width = 120, },
+                new TableColumn { Name = "IdBanGhi", Caption = "Id Bản Ghi", Width = 100, },
+                new TableColumn { Name = "LoaiTacDong", Caption = "Loại Tác Động", Width = 100, },
+                new TableColumn { Name = "NoiDungThayDoi", Caption = "Nội Dung Thay Đổi", Width = 150, },
             };
         }
     }
@@ -28,7 +28,7 @@ namespace WinApp.Views.LichSuTacDong
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "LichSuTacDong Information";
+            context.Title = "LichSuTacDong ";
             context.Editors = new object[] {
                 new EditorInfo { Name = "NguoiThucHien", Caption = " Caption of NguoiThucHien", Layout = 12,   },
                 new EditorInfo { Name = "ThoiGian", Caption = " Caption of ThoiGian", Layout = 12,   },

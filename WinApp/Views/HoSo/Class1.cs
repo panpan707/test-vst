@@ -12,12 +12,12 @@ namespace WinApp.Views.HoSo
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "List of HoSo";
+            context.Title = "Danh Sách Hồ Sơ";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "Ten", Caption = "Ten ", Width = 100, },
-                new TableColumn { Name = "SDT", Caption = "SDT ", Width = 100, },
-                new TableColumn { Name = "Email", Caption = "Email ", Width = 100, },
-                new TableColumn { Name = "Ext", Caption = "Ext ", Width = 100, },
+                new TableColumn { Name = "Ten", Caption = "Tên ", Width = 150, },
+                new TableColumn { Name = "SDT", Caption = "Số Điện Thoại ", Width = 100, },
+                new TableColumn { Name = "Email", Caption = "Email ", Width = 200, },
+                new TableColumn { Name = "Ext", Caption = "Chức Vụ", Width = 100, },
             };
         }
     }
@@ -25,12 +25,12 @@ namespace WinApp.Views.HoSo
     {
         protected override void RenderCore(ViewContext context)
         {
-            context.Title = "HoSo Information";
+            context.Title = "Thêm Hồ Sơ";
             context.Editors = new object[] {
-                new EditorInfo { Name = "Ten", Caption = " Caption of Ten", Layout = 12,   },
-                new EditorInfo { Name = "SDT", Caption = " Caption of SDT", Layout = 12,   },
-                new EditorInfo { Name = "Email", Caption = " Caption of Email", Layout = 12,   },
-                new EditorInfo { Name = "Ext", Caption = " Caption of Ext", Layout = 12,   },
+                new EditorInfo { Name = "Ten", Caption = "Tên", Layout = 12,   },
+                new EditorInfo { Name = "SDT", Caption = "Số Điện Thoại", Layout = 12,   },
+                new EditorInfo { Name = "Email", Caption = "Email", Layout = 12,   },
+                new EditorInfo { Name = "Ext", Caption = "Chức Vụ", Layout = 12,   },
             };
         }
     }
