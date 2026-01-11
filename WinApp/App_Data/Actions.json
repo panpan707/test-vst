@@ -18,9 +18,9 @@
     "giongcay/index": "Thông tin giống cây",
     "giongcay/cssx": "Cơ sở sản xuất",
     "sanxuat": "Sản xuất",
-    
+    "churung": "Danh mục hệ thống",
     "tainguyen": "Quản lý CSDL tài nguyên rừng",
-    "lorung": "Lô rừng",
+    "lorung": "Quản lý CSDL tài nguyên rừng",
     "lorung/index": "Danh sách lô rừng",
     "lorung/themoi": "Thêm mới lô rừng",
     "lorung/baocao": "Báo cáo lô rừng",
@@ -92,10 +92,10 @@
           }
         ]
       },
-      "tainguyen": {
+      "lorung": {
         "Childs": [
           {
-            "Text": "1. Quản lý quy hoạch rừng",
+            "Text": "Quản lý quy hoạch rừng",
             "Refs": [ 
                 "kyquyhoach/index", 
                 "baocaoquyhoach/index", 
@@ -103,16 +103,15 @@
             ]
           },
           {
-            "Text": "2. Quản lý hiện trạng rừng",
+            "Text": "Quản lý hiện trạng rừng",
             "Refs": [ 
                 "lorung/index",
                 "lorung/tracuu",
-                "biendongrung/index" ,
-                "churung/index"
+                "biendongrung/index"                 
             ]
           },
           {
-            "Text": "3. Bản đồ chuyên đề",
+            "Text": "Bản đồ chuyên đề",
             "Refs": [ 
                 "lorung/map_phongho",   // 2.2.7
                 "lorung/map_dacdung",   // 2.2.8
@@ -120,7 +119,7 @@
             ]
           },
           {
-            "Text": "4. Quản lý thiên tai",
+            "Text": "Quản lý thiên tai",
             "Refs": [ 
                 "diemthientai/index", 
                 "baocao/index" 
@@ -128,21 +127,12 @@
           }
         ]       
       },
-      "giongcay": {
-        "Childs": [
-          {
-            "Text": "Dữ liệu",
-            "Refs": [ "giongcay/index", "giongcay/cssx" ]
-          }
-        ]
-      },
-      "danhmuc": {
+      "churung": {
         "Childs": [
           {
             "Text": "Danh mục dùng chung",
             "Refs": [ 
                 "churung/index",
-                "donvi/index",
                 "loairung/index",
                 "hoso/index"
             ]
@@ -154,6 +144,10 @@
                 "filedinhkem/index",
                 "quyen/index"
             ]
+          },
+          {
+            "Text": "Thông tin giống cây",
+            "Refs": [ "giongcay/index", ]
           }
         ]
       }

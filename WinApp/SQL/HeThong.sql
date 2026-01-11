@@ -23,7 +23,7 @@ INSERT INTO HoSo (Ten, SDT, Email, Ext) VALUES
 (N'Nguyễn Hà Phan', '090123822', 'phan@gmail.com', N'Dev'),
 (N'Vũ Quang Huy', '0900000000', 'huy@gmail.com', N'admin'),
 (N'Phan Trường Khang', '0911111111', 'khang@gmail.com',N'Quản trị viên hệ thống'),
-(N'Lê Triệu Hưng', '094444441', 'hung@gmail.com',N'Quản trị viên hệ thống'),
+
 (N'Đỗ Xuân Hào', '093333333', 'hao@gmail.com',N'Quản trị viên hệ thống');
 -- =============================================
 -- 2. QUYỀN HẠN (Roles)
@@ -54,11 +54,6 @@ INSERT INTO TaiKhoan (Ten, MatKhau, QuyenId, HoSoId) VALUES
     'KhangPT', '1234', 
     (SELECT Id FROM Quyen WHERE Ten = 'Staff'), 
     (SELECT Id FROM HoSo WHERE Email = 'khang@gmail.com')
-),
-(
-    'HungLe', '1234', 
-    (SELECT Id FROM Quyen WHERE Ten = 'Staff'), 
-    (SELECT Id FROM HoSo WHERE Email = 'hung@gmail.com')
 ),
 (
     'HaoDo', '1234', 

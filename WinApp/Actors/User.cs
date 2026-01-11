@@ -26,9 +26,11 @@ namespace Actors
         {
             // --- 1. SIDE MENU ---
             SideMenu = new ActionContext();
+
+            var menu = new ActionContext("Quản lý CSDL tài nguyên rừng");
             var menuChucNang = new ActionContext("Chức năng Staff");
-            menuChucNang.Add("Tra cứu giống cây", "giongcay/index");
-            menuChucNang.Add("Bản đồ", "map/view");
+            menuChucNang.Add("Tra cứu lô rừng", "lorung/index");
+            menuChucNang.Add("Chủ rừng", "map/view");
             SideMenu.Add(menuChucNang);
 
             // --- 2. TOP MENU ---

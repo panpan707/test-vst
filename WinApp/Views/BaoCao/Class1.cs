@@ -15,10 +15,10 @@ namespace WinApp.Views.BaoCao
         {
             context.Title = "Danh Sách Báo Cáo Thiên Tai";
             context.TableColumns = new object[] {
-                new TableColumn { Name = "TieuDe", Caption = "Tiêu Đề", Width = 150, },
+                new TableColumn { Name = "TieuDe", Caption = "Tiêu Đề", Width = 350, },
                 new TableColumn { Name = "NgayBaoCao", Caption = "Ngày Báo Cáo", Width = 125, },
-                new TableColumn { Name = "NoiDung", Caption = "Nội Dung", Width = 300, },
-                new TableColumn { Name = "FileDinhKem", Caption = "File Đính Kèm", Width = 200, },
+                new TableColumn { Name = "NoiDung", Caption = "Nội Dung", Width = 500, },
+                new TableColumn { Name = "FileDinhKem", Caption = "File Đính Kèm", Width = 175, },
             };
         }
     }

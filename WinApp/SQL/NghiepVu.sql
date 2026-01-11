@@ -67,7 +67,7 @@ INSERT INTO DiemThienTai (TenDiem, LoaiThienTai, MucDo, ToaDoX, ToaDoY, MoTa, Do
 -- 5. BÁO CÁO THIÊN TAI
 -- =============================================
 INSERT INTO BaoCao (TieuDe, NgayBaoCao, NoiDung, NguoiBaoCao, FileDinhKem) VALUES
-(N'Báo cáo nhanh tình hình bão số 3', '2024-09-08', N'Bão gây mưa lớn, sạt lở 0.5ha rừng phòng hộ tại Thụy Hải.', 'HungLe', N'bao_cao_bao_so3.pdf'),
+(N'Báo cáo nhanh tình hình bão số 3', '2024-09-08', N'Bão gây mưa lớn, sạt lở 0.5ha rừng phòng hộ tại Thụy Hải.', 'HaoDo', N'bao_cao_bao_so3.pdf'),
 (N'Đề xuất phương án trồng rừng thay thế', '2024-10-01', N'Kế hoạch trồng lại 2ha rừng keo tại xã Thụy Xuân.', 'KhangPT', N'ke_hoach_trong_rung.docx'),
 (N'Tổng hợp thiệt hại lâm nghiệp năm 2023', '2023-12-31', N'Tổng diện tích rừng bị mất: 5ha. Nguyên nhân chính: Cháy và sạt lở.', 'HuyVu', N'tong_hop_2023.xlsx');
 
